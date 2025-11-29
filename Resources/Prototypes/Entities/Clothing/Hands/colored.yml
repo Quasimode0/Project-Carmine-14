@@ -1,28 +1,26 @@
-# Black Gloves
-# TECHNICALLY, if you ported the worn state to the RSI, this could be greyscaled, but I do not really feel like doing that.
-- type: entity
-  parent: ClothingHandsGlovesSyntheticBase
-  id: ClothingHandsGlovesColorBlack
-  name: black gloves
-  description: Regular black gloves that do not keep you from frying.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/black.rsi
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#535353"
-      right:
-      - state: inhand-right
-        color: "#535353"
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/black.rsi
-  - type: GloveHeatResistance
-    heatResistance: 1400
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: ClothingHandsGlovesFingerless
-  - type: Fiber
-    fiberColor: fibers-black
+  - type: entity
+    parent: ClothingHandsGlovesSyntheticBase
+    id: ClothingHandsGlovesColorBlack
+    name: black gloves
+    description: Regular black gloves that do not keep you from frying.
+    components:
+      - type: Sprite
+        sprite: Clothing/Hands/Gloves/Color/black.rsi
+      - type: Item
+        inhandVisuals:
+          left:
+            - state: inhand-left
+              color: '#535353'
+          right:
+            - state: inhand-right
+              color: '#535353'
+      - type: Clothing
+        sprite: Clothing/Hands/Gloves/Color/black.rsi
+      - type: GloveHeatResistance
+        heatResistance: 1400
+      - type: Butcherable
+        butcheringType: Knife
+        spawned:
+          - id: ClothingHandsGlovesFingerless
+      - type: Fiber
+        fiberColor: fibers-black

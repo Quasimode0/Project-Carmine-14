@@ -1,42 +1,37 @@
-- type: entity
-  parent: [ClothingMaskBaseButcherable, BaseFoldable]
-  id: ClothingMaskBandanaBase
-  abstract: true
-  components:
-  - type: Appearance
-  - type: Foldable
-    canFoldInsideContainer: true
-  - type: FoldableClothing
-    foldedSlots:
-    - HEAD
-    unfoldedSlots:
-    - MASK
-  - type: Mask
-  - type: IngestionBlocker
-  - type: IdentityBlocker
-    coverage: MOUTH
-  - type: Sprite
-    layers:
-    - state: icon_mask
-      map: [ "unfoldedLayer" ]
-    - state: icon
-      map: ["foldedLayer"]
-      visible: false
-  - type: Tag
-    tags:
-    - Bandana
-  - type: HideLayerClothing
-    slots:
-    - Snout
-    hideOnToggle: true
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBlack
-  name: black bandana
-  description: A black bandana to make you look cool.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Bandanas/black.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Bandanas/black.rsi
+  - type: entity
+    parent: [ClothingMaskBaseButcherable, BaseFoldable]
+    id: ClothingMaskBandanaBase
+    abstract: true
+    components:
+      - type: Sprite
+        layers:
+          - state: icon_mask
+            map: [unfoldedLayer]
+          - state: icon
+            map: [foldedLayer]
+            visible: false
+      - type: Appearance
+      - type: Tag
+        tags: [Bandana]
+      - type: Foldable
+        canFoldInsideContainer: true
+      - type: FoldableClothing
+        foldedSlots: [HEAD]
+        unfoldedSlots: [MASK]
+      - type: Mask
+      - type: IngestionBlocker
+      - type: IdentityBlocker
+        coverage: MOUTH
+      - type: HideLayerClothing
+        slots: [Snout]
+        hideOnToggle: true
+  - type: entity
+    parent: ClothingMaskBandanaBase
+    id: ClothingMaskBandBlack
+    name: black bandana
+    description: A black bandana to make you look cool.
+    components:
+      - type: Sprite
+        sprite: Clothing/Head/Bandanas/black.rsi
+      - type: Clothing
+        sprite: Clothing/Head/Bandanas/black.rsi

@@ -1,10 +1,10 @@
-- type: entity
-  name: construction ghost
-  id: constructionghost
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    color: '#3F38'
-  - type: ConstructionGhost
-  - type: Clickable
-  - type: InteractionOutline
+  - type: entity
+    id: constructionghost
+    name: construction ghost
+    categories: [HideSpawnMenu]
+    components:
+      - type: Sprite
+        color: '#3F38'
+      - type: Clickable
+      - type: ConstructionGhost
+      - type: InteractionOutline

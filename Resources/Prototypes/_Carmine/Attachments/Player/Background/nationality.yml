@@ -1,13 +1,13 @@
-- type: nationality
-  id: Bieselite
-  nameKey: nationality_name_american
-  descriptionKey: nationality_description_american
-  functions:
-    - !type:TraitModifyLanguages
-      languagesSpoken:
+  - type: nationality
+    id: Bieselite
+    nameKey: nationality_name_american
+    descriptionKey: nationality_description_american
+    functions:
+      - !type:TraitModifyLanguages
+        languagesSpoken:
         #- American
-        - Sign
-      languagesUnderstood:
+        # - [Sign]
+        languagesUnderstood:
         #- American
-        - Sign
-  passportPrototype: BieselPassport
+        #- [Sign]
+    passportPrototype: BieselPassport

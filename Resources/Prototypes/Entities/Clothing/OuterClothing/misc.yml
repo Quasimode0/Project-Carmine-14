@@ -1,10 +1,10 @@
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterHoodieBlack
-  name: black hoodie
-  description: Oh my God, it's a black hoodie!
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+  - type: entity
+    parent: ClothingOuterBase
+    id: ClothingOuterHoodieBlack
+    name: black hoodie
+    description: Oh my God, it's a black hoodie!
+    components:
+      - type: Sprite
+        sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+      - type: Clothing
+        sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi

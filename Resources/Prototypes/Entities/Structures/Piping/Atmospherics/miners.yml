@@ -1,151 +1,138 @@
-- type: entity
-  abstract: true
-  name: gas miner
-  description: Gases mined from the gas giant below (above?) flow out through this massive vent.
-  id: GasMinerBase
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: Clickable
-    - type: InteractionOutline
-    - type: Physics
-      canCollide: false
-    - type: Fixtures
-    - type: Transform
-      anchored: true
-    - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metallic
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-    - type: Sprite
-      sprite: Structures/Piping/Atmospherics/miners.rsi
-      state: miner
-    - type: AtmosDevice
-    - type: GasMiner
-      maxExternalPressure: 300
-      spawnAmount: 200
-
-- type: entity
-  name: O2 gas miner
-  parent: GasMinerBase
-  id: GasMinerOxygen
-  suffix: Shuttle, 300kPa
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: Oxygen
-
-- type: entity
-  name: O2 gas miner
-  parent: GasMinerOxygen
-  id: GasMinerOxygenStation
-  suffix: Station, 1000kPa
-  components:
-    - type: GasMiner
-      maxExternalPressure: 1000
-
-- type: entity
-  name: O2 gas miner
-  parent: GasMinerOxygen
-  id: GasMinerOxygenStationLarge
-  suffix: Large Station, 4500kPa
-  components:
-    - type: GasMiner
-      maxExternalPressure: 4500
-
-- type: entity
-  name: N2 gas miner
-  parent: GasMinerBase
-  id: GasMinerNitrogen
-  suffix: Shuttle, 300kPa
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: Nitrogen
-
-- type: entity
-  name: N2 gas miner
-  parent: GasMinerNitrogen
-  id: GasMinerNitrogenStation
-  suffix: Station, 1000kPa
-  components:
-    - type: GasMiner
-      maxExternalPressure: 1000
-
-- type: entity
-  name: N2 gas miner
-  parent: GasMinerNitrogen
-  id: GasMinerNitrogenStationLarge
-  suffix: Large Station, 4500kPa
-  components:
-    - type: GasMiner
-      maxExternalPressure: 4500
-
-- type: entity
-  name: CO2 gas miner
-  parent: GasMinerBase
-  id: GasMinerCarbonDioxide
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: CarbonDioxide
-
-- type: entity
-  name: plasma gas miner
-  parent: GasMinerBase
-  id: GasMinerPlasma
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: Plasma
-
-- type: entity
-  name: tritium gas miner
-  parent: GasMinerBase
-  id: GasMinerTritium
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: Tritium
-
-- type: entity
-  name: water vapor gas miner
-  parent: GasMinerBase
-  id: GasMinerWaterVapor
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: WaterVapor
-
-- type: entity
-  name: ammonia gas miner
-  parent: GasMinerBase
-  id: GasMinerAmmonia
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: Ammonia
-
-- type: entity
-  name: nitrous oxide gas miner
-  parent: GasMinerBase
-  id: GasMinerNitrousOxide
-  placement:
-    mode: SnapgridCenter
-  components:
-    - type: GasMiner
-      spawnGas: NitrousOxide
+  - type: entity
+    id: GasMinerBase
+    name: gas miner
+    description: Gases mined from the gas giant below (above?) flow out through this massive vent.
+    abstract: true
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: Sprite
+        sprite: Structures/Piping/Atmospherics/miners.rsi
+        state: miner
+      - type: Clickable
+      - type: Fixtures
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 100
+            behaviors:
+              - !type:DoActsBehavior
+                acts: [Destruction]
+      - type: Physics
+        canCollide: false
+      - type: Damageable
+        damageContainer: Inorganic
+        damageModifierSet: Metallic
+      - type: Transform
+        anchored: true
+      - type: InteractionOutline
+      - type: AtmosDevice
+      - type: GasMiner
+        maxExternalPressure: 300
+        spawnAmount: 200
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerOxygen
+    name: O2 gas miner
+    suffix: Shuttle, 300kPa
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: Oxygen
+  - type: entity
+    parent: GasMinerOxygen
+    id: GasMinerOxygenStation
+    name: O2 gas miner
+    suffix: Station, 1000kPa
+    components:
+      - type: GasMiner
+        maxExternalPressure: 1000
+  - type: entity
+    parent: GasMinerOxygen
+    id: GasMinerOxygenStationLarge
+    name: O2 gas miner
+    suffix: Large Station, 4500kPa
+    components:
+      - type: GasMiner
+        maxExternalPressure: 4500
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerNitrogen
+    name: N2 gas miner
+    suffix: Shuttle, 300kPa
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: Nitrogen
+  - type: entity
+    parent: GasMinerNitrogen
+    id: GasMinerNitrogenStation
+    name: N2 gas miner
+    suffix: Station, 1000kPa
+    components:
+      - type: GasMiner
+        maxExternalPressure: 1000
+  - type: entity
+    parent: GasMinerNitrogen
+    id: GasMinerNitrogenStationLarge
+    name: N2 gas miner
+    suffix: Large Station, 4500kPa
+    components:
+      - type: GasMiner
+        maxExternalPressure: 4500
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerCarbonDioxide
+    name: CO2 gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: CarbonDioxide
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerPlasma
+    name: plasma gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: Plasma
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerTritium
+    name: tritium gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: Tritium
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerWaterVapor
+    name: water vapor gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: WaterVapor
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerAmmonia
+    name: ammonia gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: Ammonia
+  - type: entity
+    parent: GasMinerBase
+    id: GasMinerNitrousOxide
+    name: nitrous oxide gas miner
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: GasMiner
+        spawnGas: NitrousOxide

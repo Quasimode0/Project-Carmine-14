@@ -1,104 +1,104 @@
-- type: entity
-  id: LockerBooze
-  parent: LockerBase
-  name: booze storage
-  description: This is where the bartender keeps the booze.
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: cabinet
-    stateDoorOpen: cabinet_open
-    stateDoorClosed: cabinet_door
-  - type: EntityStorage
-    closeSound:
-      path: /Audio/Effects/woodenclosetclose.ogg
-    openSound:
-      path: /Audio/Effects/woodenclosetopen.ogg
+  - type: entity
+    parent: LockerBase
+    id: LockerBooze
+    name: booze storage
+    description: This is where the bartender keeps the booze.
+    components:
+      - type: Appearance
+      - type: EntityStorageVisuals
+        stateBaseClosed: cabinet
+        stateDoorOpen: cabinet_open
+        stateDoorClosed: cabinet_door
+      - type: EntityStorage
+        closeSound:
+          path: /Audio/Effects/woodenclosetclose.ogg
+        openSound:
+          path: /Audio/Effects/woodenclosetopen.ogg
 
 # Basic
-- type: entity
-  id: LockerSteel
-  parent: LockerBaseSecure
-  name: secure closet
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: secure
-    stateDoorOpen: secure_open
-    stateDoorClosed: secure_door
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 15
-    staminaCost: 50
+  - type: entity
+    parent: LockerBaseSecure
+    id: LockerSteel
+    name: secure closet
+    components:
+      - type: Appearance
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Blunt: 15
+        staminaCost: 50
 
 # Electrical supplies
-- type: entity
-  id: LockerElectricalSupplies
-  parent: LockerBase
-  name: electrical supplies locker
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: eng
-    stateDoorOpen: eng_open
-    stateDoorClosed: eng_elec_door
+      - type: EntityStorageVisuals
+        stateBaseClosed: secure
+        stateDoorOpen: secure_open
+        stateDoorClosed: secure_door
+  - type: entity
+    parent: LockerBase
+    id: LockerElectricalSupplies
+    name: electrical supplies locker
+    components:
+      - type: Appearance
+      - type: EntityStorageVisuals
+        stateBaseClosed: eng
+        stateDoorOpen: eng_open
+        stateDoorClosed: eng_elec_door
 
 # Welding supplies
-- type: entity
-  id: LockerWeldingSupplies
-  parent: LockerBase
-  name: welding supplies locker
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: eng
-    stateDoorOpen: eng_open
-    stateDoorClosed: eng_weld_door
+  - type: entity
+    parent: LockerBase
+    id: LockerWeldingSupplies
+    name: welding supplies locker
+    components:
+      - type: Appearance
+      - type: EntityStorageVisuals
+        stateBaseClosed: eng
+        stateDoorOpen: eng_open
+        stateDoorClosed: eng_weld_door
 
 # Freezer
-- type: entity
-  id: LockerFreezerBase
-  parent: LockerBase
-  name: freezer
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: freezer
-    stateDoorOpen: freezer_open
-    stateDoorClosed: freezer_door
-  - type: ExplosionResistance
-    damageCoefficient: 0.50
-  - type: AntiRottingContainer
+  - type: entity
+    parent: LockerBase
+    id: LockerFreezerBase
+    name: freezer
+    components:
+      - type: Appearance
+      - type: ExplosionResistance
+        damageCoefficient: 0.50
+      - type: EntityStorageVisuals
+        stateBaseClosed: freezer
+        stateDoorOpen: freezer_open
+        stateDoorClosed: freezer_door
+      - type: AntiRottingContainer
 
 # Medicine
-- type: entity
-  id: LockerMedicine
-  parent: LockerBase
-  name: medicine locker
-  description: Filled to the brim with medical junk.
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: med
-    stateDoorOpen: med_open
-    stateDoorClosed: med_door
+  - type: entity
+    parent: LockerBase
+    id: LockerMedicine
+    name: medicine locker
+    description: Filled to the brim with medical junk.
+    components:
+      - type: Appearance
+      - type: EntityStorageVisuals
+        stateBaseClosed: med
+        stateDoorOpen: med_open
+        stateDoorClosed: med_door
 
 # Chemical
-- type: entity
-  id: LockerChemistry
-  parent: LockerBase
-  name: chemical locker
-  components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: med
-    stateDoorOpen: med_open
-    stateDoorClosed: chemical_door
+  - type: entity
+    parent: LockerBase
+    id: LockerChemistry
+    name: chemical locker
+    components:
+      - type: Appearance
+      - type: EntityStorageVisuals
+        stateBaseClosed: med
+        stateDoorOpen: med_open
+        stateDoorClosed: chemical_door
 
 # Detective
-- type: entity
-  id: LockerDetective
-  parent: LockerBooze
-  name: detective's cabinet
-  description: Usually cold and empty... like your heart.
+  - type: entity
+    parent: LockerBooze
+    id: LockerDetective
+    name: detective's cabinet
+    description: Usually cold and empty... like your heart.

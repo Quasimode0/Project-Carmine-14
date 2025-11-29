@@ -1,153 +1,132 @@
-- type: marking
-  id: TattooHiveChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_hive_chest
-
-- type: marking
-  id: TattooNightlingChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_nightling
-
-- type: marking
-  id: TattooNanotrasenChest
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Human]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_nanotrasen_chest
-
-- type: marking
-  id: TattooSilverburghLeftLeg
-  bodyPart: LLeg
-  markingCategory: LeftLeg
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_silverburgh_l_leg
-
-- type: marking
-  id: TattooSilverburghRightLeg
-  bodyPart: RLeg
-  markingCategory: RightLeg
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_silverburgh_r_leg
-
-- type: marking
-  id: TattooCampbellLeftArm
-  bodyPart: LArm
-  markingCategory: LeftArm
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_campbell_l_arm
-
-- type: marking
-  id: TattooCampbellRightArm
-  bodyPart: RArm
-  markingCategory: RightArm
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_campbell_r_arm
-
-- type: marking
-  id: TattooCampbellLeftLeg
-  bodyPart: LLeg
-  markingCategory: LeftLeg
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_campbell_l_leg
-
-- type: marking
-  id: TattooCampbellRightLeg
-  bodyPart: RLeg
-  markingCategory: RightLeg
-  speciesRestriction: [Human] # Delta V - Felinid, Oni
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_campbell_r_leg
-
-- type: marking
-  id: TattooEyeRight
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
+  - type: marking
+    id: TattooHiveChest
+    bodyPart: Chest
+    markingCategory: Chest
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_hive_chest
+  - type: marking
+    id: TattooNightlingChest
+    bodyPart: Chest
+    markingCategory: Chest
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_nightling
+  - type: marking
+    id: TattooNanotrasenChest
+    bodyPart: Chest
+    markingCategory: Chest
+    speciesRestriction: [Human]
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_nanotrasen_chest
+  - type: marking
+    id: TattooSilverburghLeftLeg
+    bodyPart: LLeg
+    markingCategory: LeftLeg
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_silverburgh_l_leg
+  - type: marking
+    id: TattooSilverburghRightLeg
+    bodyPart: RLeg
+    markingCategory: RightLeg
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_silverburgh_r_leg
+  - type: marking
+    id: TattooCampbellLeftArm
+    bodyPart: LArm
+    markingCategory: LeftArm
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_campbell_l_arm
+  - type: marking
+    id: TattooCampbellRightArm
+    bodyPart: RArm
+    markingCategory: RightArm
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_campbell_r_arm
+  - type: marking
+    id: TattooCampbellLeftLeg
+    bodyPart: LLeg
+    markingCategory: LeftLeg
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_campbell_l_leg
+  - type: marking
+    id: TattooCampbellRightLeg
+    bodyPart: RLeg
+    markingCategory: RightLeg
+    speciesRestriction: [Human] # Delta V - Felinid, Oni
+    coloring:
+      default:
+        type: !type:TattooColoring
+        fallbackColor: '#666666'
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_campbell_r_leg
+  - type: marking
+    id: TattooEyeRight
+    bodyPart: Eyes
+    markingCategory: Head
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy
+    coloring:
+      default:
+        type: !type:EyeColoring
           negative: true
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_eye_r
-
-- type: marking
-  id: TattooEyeLeft
-  bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_eye_r
+  - type: marking
+    id: TattooEyeLeft
+    bodyPart: Eyes
+    markingCategory: Head
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy
+    coloring:
+      default:
+        type: !type:EyeColoring
           negative: true
-  sprites:
-  - sprite: Mobs/Customization/tattoos.rsi
-    state: tattoo_eye_l
+    sprites:
+      - sprite: Mobs/Customization/tattoos.rsi
+        state: tattoo_eye_l

@@ -1,194 +1,181 @@
-- type: entity
-  id: BaseMech
-  save: false
-  abstract: true
-  components:
-  - type: MobMover
-  - type: Mech
-  - type: MechAir
-  - type: AirFilter
+  - type: entity
+    id: BaseMech
+    abstract: true
+    save: false
+    components:
+      - type: StaticPrice
+        price: 450
+  # Goobstation Change End
+      - type: Appearance
+      - type: PointLight
+        enabled: false
+        softness: 5
+        autoRot: true
+        mask: /Textures/Effects/LightMasks/cone.png
+        radius: 7
+        energy: 3
+        netsync: false
+      - type: Tag
+        tags: [DoorBumpOpener, FootstepSound]
+      - type: GenericVisualizer
+        visuals:
+          enum.PaperLabelVisuals.HasLabel:
+            enum.PaperLabelVisuals.Layer:
+              true: {visible: true}
+              false: {visible: false}
+          enum.PaperLabelVisuals.LabelType:
+            enum.PaperLabelVisuals.Layer:
+              Paper: {state: paper}
+              Bounty: {state: bounty}
+              CaptainsPaper: {state: captains_paper}
+              Invoice: {state: invoice}
+      - type: Clickable
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeCircle
+              radius: 0.45
+            density: 21390 # 15 Tonnes
+            mask: [MobMask]
+            layer: [MobLayer]
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 1000 # Goobstation
+            behaviors:
+              - !type:PlaySoundBehavior
+                sound:
+                  collection: MetalBreak
+              - !type:ChangeConstructionNodeBehavior
+                node: start
+              - !type:DoActsBehavior
+                acts: [Destruction]
+  # Goobstation Change Start
+      - type: Physics
+        bodyType: KinematicController
+      - type: Damageable
+        damageContainer: Inorganic
+        damageModifierSet: LightArmor # Goobstation
+      - type: UserInterface
+        interfaces:
+          enum.MechUiKey.Key:
+            type: MechBoundUserInterface
+          enum.RadarConsoleUiKey.Key:
+            type: RadarConsoleBoundUserInterface
+      - type: MeleeWeapon
+        canWideSwing: false
+        hidden: true
+        attackRate: 1.3333
+        damage:
+          types:
+            Blunt: 25 # thwack
+            Structural: 20
+        soundHit:
+          collection: MetalThud
+      - type: ContainerContainer
+        containers:
+          mech-pilot-slot: !type:ContainerSlot
+          mech-equipment-container: !type:Container
+          mech-battery-slot: !type:ContainerSlot
+          paper_label: !type:ContainerSlot
+      - type: MobMover
+      - type: Mech
+      - type: MechAir
+      - type: AirFilter
     # everything except oxygen and nitrogen
-    gases:
-    - CarbonDioxide
-    - Plasma
-    - Tritium
-    - WaterVapor
-    - Ammonia
-    - NitrousOxide
-    - Frezon
+        gases:
+          - CarbonDioxide
+          - Plasma
+          - Tritium
+          - WaterVapor
+          - Ammonia
+          - NitrousOxide
+          - Frezon
     #- Helium3 TODO: fusion
     # remove everything except oxygen to maintain oxygen ratio
-    overflowGases:
-    - Nitrogen
-    - CarbonDioxide
-    - Plasma
-    - Tritium
-    - WaterVapor
-    - Ammonia
-    - NitrousOxide
-    - Frezon
+        overflowGases:
+          - Nitrogen
+          - CarbonDioxide
+          - Plasma
+          - Tritium
+          - WaterVapor
+          - Ammonia
+          - NitrousOxide
+          - Frezon
     #- Helium3 TODO: fusion
-  - type: AirIntake
+      - type: AirIntake
   # for intake and filter to work
-  - type: AtmosDevice
-    requireAnchored: false
-    joinSystem: true
-  - type: DoAfter
-  - type: Repairable
-    fuelCost: 25
-    doAfterDelay: 10
-  - type: UserInterface
-    interfaces:
-      enum.MechUiKey.Key:
-        type: MechBoundUserInterface
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
-  - type: MeleeWeapon
-    canWideSwing: false
-    hidden: true
-    attackRate: 1.3333
-    damage:
-      types:
-        Blunt: 25 #thwack
-        Structural: 20
-    soundHit:
-      collection: MetalThud
-  - type: Puller
-    needsHands: false
-  - type: InputMover
-  - type: InteractionOutline
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 2
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - FootstepSound
-  - type: Pullable
-  - type: Physics
-    bodyType: KinematicController
-  - type: Clickable
-  - type: WiresPanel
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.45
-        density: 21390 # 15 Tonnes
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: Appearance
-  - type: ContainerContainer
-    containers:
-      mech-pilot-slot: !type:ContainerSlot
-      mech-equipment-container: !type:Container
-      mech-battery-slot: !type:ContainerSlot
-      paper_label: !type:ContainerSlot # Goobstation
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: LightArmor # Goobstation
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Mecha/mechmove03.ogg
-  - type: GuideHelp
-    guides:
-    - Robotics
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000 # Goobstation
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: start
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  # Goobstation Change Start
-  - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
-  - type: PointLight
-    enabled: false
-    softness: 5
-    autoRot: true
-    mask: /Textures/Effects/LightMasks/cone.png
-    radius: 7
-    energy: 3
-    netsync: false
-  - type: GenericVisualizer
-    visuals:
-      enum.PaperLabelVisuals.HasLabel:
-        enum.PaperLabelVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PaperLabelVisuals.LabelType:
-        enum.PaperLabelVisuals.Layer:
-          Paper: { state: paper }
-          Bounty: { state: bounty }
-          CaptainsPaper: { state: captains_paper }
-          Invoice: { state: invoice }
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
-      whitelist:
-        components:
-        - Paper
-      blacklist:
-        tags:
-        - Book
-  - type: StaticPrice
-    price: 450
-  # Goobstation Change End
-  - type: RadarConsole
-    maxRange: 256
-    followEntity: true
-    keepWorldAligned: true
-
-- type: entity
-  id: MechRipley
-  parent: BaseMech
-  name: Ripley APLU
-  description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    noRot: true
-    sprite: Objects/Specific/Mech/mecha.rsi
-    layers:
-    - map: [ "enum.MechVisualLayers.Base" ]
-      state: ripley
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
-  - type: Mech
-    baseState: ripley
-    openState: ripley-open
-    brokenState: ripley-broken
-    mechToPilotDamageMultiplier: 0.75
-    pilotWhitelist:
-      components:
-        - HumanoidAppearance
-  - type: MeleeWeapon
-    hidden: true
-    attackRate: 1
-    damage:
-      types:
-        Blunt: 14 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2.25
-    baseSprintSpeed: 3.6
-
-- type: entity
-  id: MechRipleyBattery
-  parent: MechRipley
-  suffix: Battery
-  components:
-  - type: ContainerFill
-    containers:
-      mech-battery-slot:
-      - PowerCellHigh
+      - type: AtmosDevice
+        requireAnchored: false
+        joinSystem: true
+      - type: DoAfter
+      - type: Repairable
+        fuelCost: 25
+        doAfterDelay: 10
+      - type: Puller
+        needsHands: false
+      - type: InputMover
+      - type: InteractionOutline
+      - type: MovementSpeedModifier
+        baseWalkSpeed: 1
+        baseSprintSpeed: 2
+      - type: Pullable
+      - type: WiresPanel
+      - type: FootstepModifier
+        footstepSoundCollection:
+          path: /Audio/Mecha/mechmove03.ogg
+      - type: GuideHelp
+        guides: [Robotics]
+      - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
+      - type: PaperLabel
+        labelSlot:
+          insertVerbText: Attach Label
+          ejectVerbText: Remove Label
+          whitelist:
+            components: [Paper]
+          blacklist:
+            tags: [Book]
+      - type: RadarConsole
+        maxRange: 256
+        followEntity: true
+        keepWorldAligned: true
+  - type: entity
+    parent: BaseMech
+    id: MechRipley
+    name: Ripley APLU
+    description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
+    components:
+      - type: Sprite
+        drawdepth: Mobs
+        noRot: true
+        sprite: Objects/Specific/Mech/mecha.rsi
+        layers:
+          - map: [enum.MechVisualLayers.Base]
+            state: ripley
+      - type: MeleeWeapon
+        hidden: true
+        attackRate: 1
+        damage:
+          types:
+            Blunt: 14 # intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+      - type: FootstepModifier
+        footstepSoundCollection:
+          path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      - type: Mech
+        baseState: ripley
+        openState: ripley-open
+        brokenState: ripley-broken
+        mechToPilotDamageMultiplier: 0.75
+        pilotWhitelist:
+          components: [HumanoidAppearance]
+      - type: MovementSpeedModifier
+        baseWalkSpeed: 2.25
+        baseSprintSpeed: 3.6
+  - type: entity
+    parent: MechRipley
+    id: MechRipleyBattery
+    suffix: Battery
+    components:
+      - type: ContainerFill
+        containers:
+          mech-battery-slot: [PowerCellHigh]

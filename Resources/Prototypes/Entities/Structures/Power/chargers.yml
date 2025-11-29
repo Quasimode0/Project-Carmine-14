@@ -1,172 +1,159 @@
-- type: entity
-  abstract: true
-  parent: [BaseMachinePowered, ConstructibleMachine]
-  id: BaseRecharger
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Transform
-    anchored: true
-    noRot: false
-  - type: Sprite
-    snapCardinals: true
-  - type: Appearance
-  - type: Charger
-    slotId: charger_slot
-  - type: Anchorable
-    delay: 1
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 80
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    - trigger:
-        !type:DamageTrigger
-        damage: 40
-      behaviors:
-      - !type:EmptyAllContainersBehaviour
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: StaticPrice
-    price: 25
-
-- type: entity
-  abstract: true
-  parent: BaseRecharger
-  id: BaseItemRecharger
-  components:
-  - type: Sprite
-    drawdepth: SmallObjects
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: "empty"
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: "light-off"
-      shader: "unshaded"
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.10,-0.10,0.10,0.10"
-        density: 500
-        mask:
-        - TabletopMachineMask
-        layer:
-        - BulletImpassable
-  - type: PowerChargerVisuals
-  - type: ContainerContainer
-    containers:
-      charger_slot: !type:ContainerSlot
-      machine_parts: !type:Container
-  - type: RequireProjectileTarget
-
-- type: entity
-  parent: BaseItemRecharger
-  id: PowerCellRecharger
-  name: cell recharger
-  components:
-  - type: Sprite
-    sprite: Structures/Power/cell_recharger.rsi
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: "empty"
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: "light-off"
-      shader: "unshaded"
-    - state: open
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-      visible: false
-  - type: WiresPanel
-  - type: GenericVisualizer
-    visuals:
-      enum.WiresVisuals.MaintenancePanelState:
-        enum.WiresVisualLayers.MaintenancePanel:
-          True: { visible: true }
-          False: { visible: false }
-  - type: PowerCellSlot
-    cellSlotId: charger_slot
+  - type: entity
+    parent: [BaseMachinePowered, ConstructibleMachine]
+    id: BaseRecharger
+    abstract: true
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: Sprite
+        snapCardinals: true
+      - type: StaticPrice
+        price: 25
+      - type: Appearance
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 80
+            behaviors:
+              - !type:DoActsBehavior
+                acts: [Destruction]
+          - trigger: !type:DamageTrigger
+              damage: 40
+            behaviors:
+              - !type:EmptyAllContainersBehaviour
+              - !type:DoActsBehavior
+                acts: [Destruction]
+              - !type:PlaySoundBehavior
+                sound:
+                  collection: MetalBreak
+      - type: Transform
+        anchored: true
+        noRot: false
+      - type: Charger
+        slotId: charger_slot
+      - type: Anchorable
+        delay: 1
+  - type: entity
+    parent: BaseRecharger
+    id: BaseItemRecharger
+    abstract: true
+    components:
+      - type: Sprite
+        drawdepth: SmallObjects
+        layers:
+          - map: [enum.PowerChargerVisualLayers.Base]
+            state: empty
+          - map: [enum.PowerChargerVisualLayers.Light]
+            state: light-off
+            shader: unshaded
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.10,-0.10,0.10,0.10
+            density: 500
+            mask: [TabletopMachineMask]
+            layer: [BulletImpassable]
+      - type: ContainerContainer
+        containers:
+          charger_slot: !type:ContainerSlot
+          machine_parts: !type:Container
+      - type: PowerChargerVisuals
+      - type: RequireProjectileTarget
+  - type: entity
+    parent: BaseItemRecharger
+    id: PowerCellRecharger
+    name: cell recharger
+    components:
+      - type: Sprite
+        sprite: Structures/Power/cell_recharger.rsi
+        layers:
+          - map: [enum.PowerChargerVisualLayers.Base]
+            state: empty
+          - map: [enum.PowerChargerVisualLayers.Light]
+            state: light-off
+            shader: unshaded
+          - state: open
+            map: [enum.WiresVisualLayers.MaintenancePanel]
+            visible: false
+      - type: GenericVisualizer
+        visuals:
+          enum.WiresVisuals.MaintenancePanelState:
+            enum.WiresVisualLayers.MaintenancePanel:
+              true: {visible: true}
+              false: {visible: false}
+      - type: WiresPanel
+      - type: PowerCellSlot
+        cellSlotId: charger_slot
     # fitsInCharger is true i dont think this will ever affect anything negatively but it lets it function
-  - type: ItemSlots
-    slots:
-      charger_slot:
-        ejectOnInteract: true
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          tags:
-          - PowerCell
-          - PowerCellSmall
-
-- type: entity
-  parent: BaseItemRecharger
-  id: WeaponCapacitorRecharger
-  name: recharger
-  components:
-  - type: Sprite
-    sprite: Structures/Power/recharger.rsi
+      - type: ItemSlots
+        slots:
+          charger_slot:
+            ejectOnInteract: true
+            name: power-cell-slot-component-slot-name-default
+            whitelist:
+              tags: [PowerCell, PowerCellSmall]
+  - type: entity
+    parent: BaseItemRecharger
+    id: WeaponCapacitorRecharger
+    name: recharger
+    components:
+      - type: Sprite
+        sprite: Structures/Power/recharger.rsi
   # no powercellslot since stun baton etc arent powercells
-  - type: ItemSlots
-    slots:
-      charger_slot:
-        ejectOnInteract: true
-        whitelist:
-          components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
-          - Stunbaton
-
-- type: entity
-  parent: BaseItemRecharger
-  id: TurboItemRecharger
-  name: turbo recharger
-  description: An overclocked recharger that's been adapted with a global port.
-  components:
-  - type: Sprite
-    sprite: Structures/Power/turbo_recharger.rsi
-  - type: Charger
-    chargeRate: 100
-  - type: ItemSlots
-    slots:
-      charger_slot:
-        ejectOnInteract: true
-        whitelist:
-          components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
-          - Stunbaton
-          - PowerCell
-        blacklist:
-          tags:
-          - PotatoBattery
-
-- type: entity
-  parent: BaseItemRecharger
-  id: WallWeaponCapacitorRecharger
-  name: wall recharger
-  components:
-  - type: Sprite
-    sprite: Structures/Power/wall_recharger.rsi
-    layers:
-    - map: ["enum.PowerChargerVisualLayers.Base"]
-      state: "empty"
-    - map: ["enum.PowerChargerVisualLayers.Light"]
-      state: "light-off"
-      shader: "unshaded"
-  - type: WallMount
-  - type: Charger
-    chargeRate: 25
-  - type: ItemSlots
-    slots:
-      charger_slot:
-        ejectOnInteract: true
-        whitelist:
-          components:
-          - HitscanBatteryAmmoProvider
-          - ProjectileBatteryAmmoProvider
-          - Stunbaton
+      - type: ItemSlots
+        slots:
+          charger_slot:
+            ejectOnInteract: true
+            whitelist:
+              components:
+                - HitscanBatteryAmmoProvider
+                - ProjectileBatteryAmmoProvider
+                - Stunbaton
+  - type: entity
+    parent: BaseItemRecharger
+    id: TurboItemRecharger
+    name: turbo recharger
+    description: An overclocked recharger that's been adapted with a global port.
+    components:
+      - type: Sprite
+        sprite: Structures/Power/turbo_recharger.rsi
+      - type: Charger
+        chargeRate: 100
+      - type: ItemSlots
+        slots:
+          charger_slot:
+            ejectOnInteract: true
+            whitelist:
+              components:
+                - HitscanBatteryAmmoProvider
+                - ProjectileBatteryAmmoProvider
+                - Stunbaton
+                - PowerCell
+            blacklist:
+              tags: [PotatoBattery]
+  - type: entity
+    parent: BaseItemRecharger
+    id: WallWeaponCapacitorRecharger
+    name: wall recharger
+    components:
+      - type: Sprite
+        sprite: Structures/Power/wall_recharger.rsi
+        layers:
+          - map: [enum.PowerChargerVisualLayers.Base]
+            state: empty
+          - map: [enum.PowerChargerVisualLayers.Light]
+            state: light-off
+            shader: unshaded
+      - type: WallMount
+      - type: Charger
+        chargeRate: 25
+      - type: ItemSlots
+        slots:
+          charger_slot:
+            ejectOnInteract: true
+            whitelist:
+              components:
+                - HitscanBatteryAmmoProvider
+                - ProjectileBatteryAmmoProvider
+                - Stunbaton

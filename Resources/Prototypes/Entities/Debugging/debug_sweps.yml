@@ -1,46 +1,41 @@
-- type: entity
-  name: bang stick gibber
-  parent: BaseItem
-  id: MeleeDebugGib
-  description: hit hard ye
-  suffix: DEBUG
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 20000
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
-
-- type: entity
-  name: bang stick 100dmg
-  parent: MeleeDebugGib
-  id: MeleeDebug100
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 100
-
-- type: entity
-  name: bang stick 200dmg
-  parent: MeleeDebugGib
-  id: MeleeDebug200
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 200
+  - type: entity
+    parent: BaseItem
+    id: MeleeDebugGib
+    name: bang stick gibber
+    description: hit hard ye
+    suffix: DEBUG
+    components:
+      - type: Sprite
+        sprite: Objects/Weapons/Melee/debug.rsi
+        state: icon
+      - type: Item
+        size: Tiny
+        sprite: Objects/Weapons/Melee/debug.rsi
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Blunt: 20000
+  - type: entity
+    parent: MeleeDebugGib
+    id: MeleeDebug100
+    name: bang stick 100dmg
+    components:
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Blunt: 100
+  - type: entity
+    parent: MeleeDebugGib
+    id: MeleeDebug200
+    name: bang stick 200dmg
+    components:
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Blunt: 200

@@ -1,7 +1,7 @@
-- type: entity
-  parent: BaseSignDirectional
-  id: PaintingDirectionalBase
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: _NF/Structures/Wallmounts/paintings_directional.rsi
+  - type: entity
+    parent: BaseSignDirectional
+    id: PaintingDirectionalBase
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: _NF/Structures/Wallmounts/paintings_directional.rsi

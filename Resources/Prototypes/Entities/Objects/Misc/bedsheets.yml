@@ -1,106 +1,95 @@
-- type: entity
-  parent: BaseItem
-  id: BedsheetBase
-  name: BedsheetBase
-  abstract: true
-  description: A surprisingly soft linen bedsheet.
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Bed
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bedsheets.rsi
-    noRot: true
-  - type: Item
-    size: Small
-  - type: Clothing
-    quickEquip: true
-    slots:
-    - neck
-  - type: StaticPrice
-    price: 100
-  - type: Tag
-    tags:
-    - Bedsheet
-
-- type: entity
-  id: BedsheetBlack
-  parent: BedsheetBase
-  name: black bedsheet
-  components:
-  - type: Sprite
-    state: sheetblack
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/black.rsi
-
-- type: entity
-  id: BedsheetBlue
-  parent: BedsheetBase
-  name: blue bedsheet
-  components:
-  - type: Sprite
-    state: sheetblue
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/blue.rsi
-
-- type: entity
-  id: BedsheetBrown
-  parent: BedsheetBase
-  name: brown bedsheet
-  components:
-  - type: Sprite
-    state: sheetbrown
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/brown.rsi
-
-- type: entity
-  id: BedsheetGrey
-  parent: BedsheetBase
-  name: grey bedsheet
-  components:
-  - type: Sprite
-    state: sheetgrey
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/grey.rsi
-
-- type: entity
-  id: BedsheetMedical
-  parent: BedsheetBase
-  name: medical bedsheet
-  description: It's a sterilized blanket commonly used in the Medbay. Sterilization is voided if a virologist is present onboard the station.
-  components:
-  - type: Sprite
-    state: sheetmedical
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/medical.rsi
-
-- type: entity
-  id: BedsheetRed
-  parent: BedsheetBase
-  name: red bedsheet
-  components:
-  - type: Sprite
-    state: sheetred
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/red.rsi
-
-- type: entity
-  id: BedsheetWhite
-  parent: BedsheetBase
-  name: white bedsheet
-  components:
-  - type: Sprite
-    state: sheetwhite
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/white.rsi
-
-- type: entity
-  id: BedsheetYellow
-  parent: BedsheetBase
-  name: yellow bedsheet
-  components:
-  - type: Sprite
-    state: sheetyellow
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/yellow.rsi
+  - type: entity
+    parent: BaseItem
+    id: BedsheetBase
+    name: BedsheetBase
+    description: A surprisingly soft linen bedsheet.
+    abstract: true
+    placement:
+      mode: SnapgridCenter
+      snap: [Bed]
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/bedsheets.rsi
+        noRot: true
+      - type: StaticPrice
+        price: 100
+      - type: Item
+        size: Small
+      - type: Clothing
+        quickEquip: true
+        slots: [neck]
+      - type: Tag
+        tags: [Bedsheet]
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetBlack
+    name: black bedsheet
+    components:
+      - type: Sprite
+        state: sheetblack
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/black.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetBlue
+    name: blue bedsheet
+    components:
+      - type: Sprite
+        state: sheetblue
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/blue.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetBrown
+    name: brown bedsheet
+    components:
+      - type: Sprite
+        state: sheetbrown
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/brown.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetGrey
+    name: grey bedsheet
+    components:
+      - type: Sprite
+        state: sheetgrey
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/grey.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetMedical
+    name: medical bedsheet
+    description: It's a sterilized blanket commonly used in the Medbay. Sterilization is voided if a virologist is present onboard the station.
+    components:
+      - type: Sprite
+        state: sheetmedical
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/medical.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetRed
+    name: red bedsheet
+    components:
+      - type: Sprite
+        state: sheetred
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/red.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetWhite
+    name: white bedsheet
+    components:
+      - type: Sprite
+        state: sheetwhite
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/white.rsi
+  - type: entity
+    parent: BedsheetBase
+    id: BedsheetYellow
+    name: yellow bedsheet
+    components:
+      - type: Sprite
+        state: sheetyellow
+      - type: Clothing
+        sprite: Clothing/Neck/Bedsheets/yellow.rsi

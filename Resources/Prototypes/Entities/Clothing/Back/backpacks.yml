@@ -1,46 +1,42 @@
-- type: entity
-  parent: [Clothing, ContentsExplosionResistanceBase]
-  id: ClothingBackpack
-  name: backpack
-  description: You wear this on your back and put items into it.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/backpack.rsi
-    state: icon
-  - type: Item
-    size: Huge
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    equipDelay: 0
-    unequipDelay: 1 # belts and backpacks can be misclicked when trying to open them - this prevents that.
-  - type: Storage
-    grid:
-    - 0,0,6,3
-    maxItemSize: Huge
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
+  - type: entity
+    parent: [Clothing, ContentsExplosionResistanceBase]
+    id: ClothingBackpack
+    name: backpack
+    description: You wear this on your back and put items into it.
+    components:
+      - type: Sprite
+        sprite: Clothing/Back/Backpacks/backpack.rsi
+        state: icon
+      - type: Item
+        size: Huge
+      - type: Clothing
+        quickEquip: false
+        slots: [back]
+        equipDelay: 0
+        unequipDelay: 1 # belts and backpacks can be misclicked when trying to open them - this prevents that.
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.25,-0.25,0.25,0.25
+            density: 35
+            mask: [ItemMask]
+            restitution: 0.3
+            friction: 0.2
+      - type: UserInterface
+        interfaces:
+          enum.StorageUiKey.Key:
+            type: StorageBoundUserInterface
   # to prevent bag open/honk spam
-  - type: UseDelay
-    delay: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: AllowsSleepInside # DeltaV - enable sleeping inside bags
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
-        density: 35
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
+      - type: ContainerContainer
+        containers:
+          storagebase: !type:Container
+            ents: []
+      - type: ExplosionResistance
+        damageCoefficient: 0.9
+      - type: Storage
+        grid: ['0,0,6,3']
+        maxItemSize: Huge
+      - type: UseDelay
+        delay: 0.5
+      - type: AllowsSleepInside # DeltaV - enable sleeping inside bags

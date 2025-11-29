@@ -1,8 +1,8 @@
-﻿- type: entity
-  name: hover entity
-  id: hoverentity
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      layers:
-        - shader: unshaded
+  - type: entity
+    id: hoverentity
+    name: hover entity
+    categories: [HideSpawnMenu]
+    components:
+      - type: Sprite
+        layers:
+          - shader: unshaded

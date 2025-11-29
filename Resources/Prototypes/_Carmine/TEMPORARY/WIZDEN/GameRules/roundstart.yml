@@ -1,31 +1,28 @@
-- type: entity
-  id: BaseGameRule
-  abstract: true
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: GameRule
-
-- type: entity
-  id: InactivityTimeRestart
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InactivityRule
-    inactivityMaxTime: 600
-    roundEndDelay: 10
-
-- type: entity
-  id: MaxTimeRestart
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: MaxTimeRestartRule
-    roundMaxTime: 300
-    roundEndDelay: 10
-
-- type: entity
-  id: Sandbox
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SandboxRule
+  - type: entity
+    id: BaseGameRule
+    abstract: true
+    categories: [HideSpawnMenu]
+    components:
+      - type: GameRule
+  - type: entity
+    parent: BaseGameRule
+    id: InactivityTimeRestart
+    categories: [HideSpawnMenu]
+    components:
+      - type: InactivityRule
+        inactivityMaxTime: 600
+        roundEndDelay: 10
+  - type: entity
+    parent: BaseGameRule
+    id: MaxTimeRestart
+    categories: [HideSpawnMenu]
+    components:
+      - type: MaxTimeRestartRule
+        roundMaxTime: 300
+        roundEndDelay: 10
+  - type: entity
+    parent: BaseGameRule
+    id: Sandbox
+    categories: [HideSpawnMenu]
+    components:
+      - type: SandboxRule

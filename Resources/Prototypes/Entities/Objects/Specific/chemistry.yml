@@ -1,392 +1,373 @@
-- type: entity
-  parent: BaseItem
-  id: BaseBeaker
-  abstract: true
-  components:
-  - type: Tag
-    tags:
-    - GlassBeaker
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-    layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-  - type: MeleeWeapon
-    soundNoDamage:
-      path: "/Audio/Effects/Fluids/splat.ogg"
-    damage:
-      types:
-        Blunt: 0
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-  - type: MixableSolution
-    solution: beaker
-  - type: FitsInDispenser
-    solution: beaker
-  - type: RefillableSolution
-    solution: beaker
-  - type: DrainableSolution
-    solution: beaker
-  - type: ExaminableSolution
-    solution: beaker
-  - type: DrawableSolution
-    solution: beaker
-  - type: InjectableSolution
-    solution: beaker
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: SolutionItemStatus
-    solution: beaker
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: Drink
-    solution: beaker
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beaker
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Glass
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpillBehavior
+  - type: entity
+    parent: BaseItem
+    id: BaseBeaker
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/beaker.rsi
+        layers:
+          - state: beaker
+          - state: beaker1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 30
+      - type: Item
+        sprite: Objects/Specific/Chemistry/beaker.rsi
+      - type: Appearance
+      - type: Tag
+        tags: [GlassBeaker]
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 5
+            behaviors:
+              - !type:PlaySoundBehavior
+                sound:
+                  collection: GlassBreak
+                  params:
+                    volume: -4
+              - !type:SpillBehavior
+                solution: beaker
+              - !type:SpawnEntitiesBehavior
+                spawn:
+                  ShardGlass:
+                    min: 1
+                    max: 1
+                transferForensics: true
+              - !type:DoActsBehavior
+                acts: [Destruction]
+      - type: Damageable
+        damageContainer: Inorganic
+        damageModifierSet: Glass
+      - type: UserInterface
+        interfaces:
+          enum.TransferAmountUiKey.Key:
+            type: TransferAmountBoundUserInterface
+      - type: MeleeWeapon
+        soundNoDamage:
+          path: /Audio/Effects/Fluids/splat.ogg
+        damage:
+          types:
+            Blunt: 0
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Blunt: 5
+      - type: SolutionContainerManager
+        solutions:
+          beaker:
+            maxVol: 50
+      - type: MixableSolution
         solution: beaker
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 1
-        transferForensics: true
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnLand
-    damage:
-      types:
-        Blunt: 10 # glass resistance set reduces damage. Need to land twice (w/o hitting wall)
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 5
-  - type: DamageOnHighSpeedImpact
-    minimumSpeed: 2
-    damage:
-      types:
-        Blunt: 5
-  - type: StaticPrice
-    price: 30
-
-- type: entity
-  parent: BaseItem
-  id: BaseBeakerMetallic
-  abstract: true
-  components:
-  - type: Tag
-    tags:
-    - GlassBeaker
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-    layers:
-      - state: beaker
-      - state: beaker1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-  - type: MeleeWeapon
-    soundNoDamage:
-      path: "/Audio/Effects/Fluids/splat.ogg"
-    damage:
-      types:
-        Blunt: 0
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-  - type: MixableSolution
-    solution: beaker
-  - type: FitsInDispenser
-    solution: beaker
-  - type: RefillableSolution
-    solution: beaker
-  - type: DrainableSolution
-    solution: beaker
-  - type: ExaminableSolution
-    solution: beaker
-  - type: DrawableSolution
-    solution: beaker
-  - type: InjectableSolution
-    solution: beaker
-  - type: SolutionTransfer
-    canChangeTransferAmount: true
-  - type: SolutionItemStatus
-    solution: beaker
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: Drink
-    solution: beaker
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beaker
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Glass
-  - type: StaticPrice
-    price: 30
-
-- type: entity
-  name: beaker
-  parent: BaseBeaker
-  description: Used to contain a moderate amount of chemicals and solutions.
-  id: Beaker
-  components:
-  - type: Spillable
-    solution: beaker
-  - type: StaticPrice
-    price: 10
-  - type: PhysicalComposition
-    materialComposition:
-      Glass: 50
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beaker
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
-
-- type: entity
-  name: cryoxadone beaker
-  description: Filled with a reagent used in cryogenic tubes.
-  parent: Beaker
-  id: CryoxadoneBeakerSmall
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 50
-        reagents:
-        - ReagentId: Cryoxadone
-          Quantity: 50
-
-- type: entity
-  name: large beaker
-  parent: BaseBeaker
-  description: Used to contain a large amount of chemicals or solutions.
-  id: LargeBeaker
-  components:
-  - type: Spillable
-    solution: beaker
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
-    layers:
-      - state: beakerlarge
-      - state: beakerlarge1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Item
-    size: Normal
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 100
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: beakerlarge
-    inHandsMaxFillLevels: 4
-    inHandsFillBaseName: -fill-
-  - type: PhysicalComposition
-    materialComposition:
-      Glass: 100
-  - type: StaticPrice
-    price: 20
-
-- type: entity
-  name: dropper
-  parent: BaseItem
-  description: Used to transfer small amounts of chemical solution between containers.
-  id: Dropper
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/dropper.rsi
-    layers:
-      - state: dropper
-      - state: dropper1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 5
-  - type: Injector
-    injectOnly: false
-    ignoreMobs: true
-    minTransferAmount: 1
-    maxTransferAmount: 5
-    transferAmount: 1
-    toggleState: 1 # draw
-  - type: ExaminableSolution
-    solution: dropper
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
-  - type: Spillable
-    solution: injector
-  - type: Item
-    sprite: Objects/Specific/Chemistry/dropper.rsi
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: dropper
-    inHandsMaxFillLevels: 1
-    inHandsFillBaseName: -fill-
-  - type: StaticPrice
-    price: 40
-
-- type: entity
-  name: syringe
-  parent: BaseItem
-  description: Used to draw blood samples from mobs, or to inject them with reagents.
-  id: BaseSyringe
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/syringe.rsi
-    layers:
-      - state: syringe1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-      - state: syringe_base0
-        map: ["enum.SolutionContainerLayers.Base"]
-  - type: Icon
-    sprite: Objects/Specific/Chemistry/syringe.rsi
-    state: "syringe_base0"
-  - type: Item
-    size: Tiny
-    sprite: Objects/Specific/Chemistry/syringe.rsi
-  - type: SolutionContainerManager
-    solutions:
-      injector:
-        maxVol: 15
-  - type: Injector
-    injectOnly: false
-  - type: ExaminableSolution
-    solution: injector
-  - type: Spillable
-    solution: injector
-  - type: TrashOnSolutionEmpty
-    solution: injector
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 2
-    fillBaseName: syringe
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
-  - type: Tag
-    tags:
-    - Syringe
-
-- type: entity
-  parent: BaseSyringe
-  id: Syringe
-  components:
-  - type: Injector
-    transferAmount: 15
-    toggleState: Draw
-  - type: Tag
-    tags:
-    - Syringe
-    - Trash
-
-- type: entity
-  name: pill
-  parent: BaseItem
-  id: Pill
-  description: It's not a suppository.
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill
-  - type: Item
-    size: Tiny
-    sprite: Objects/Specific/Chemistry/pills.rsi
-  - type: Pill
-  - type: Food
-    forceFeedDelay: 1
-    transferAmount: null
-    eatMessage: food-swallow
-    useSound: /Audio/Items/pill.ogg
-  - type: BadFood
-  - type: FlavorProfile
-    ignoreReagents: []
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-  - type: SolutionSpiker
-    sourceSolution: food
-  - type: Extractable
-    grindableSolutionName: food
-  - type: StaticPrice
-    price: 0
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 10
-      behaviors:
-      - !type:SpillBehavior
-        solution: food
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - Pill
-
-- type: entity
-  name: pill canister
-  id: PillCanister
-  parent: BaseStorageItem
-  description: Holds up to 10 pills.
-  components:
-  - type: Item
-    size: Tiny
-    sprite: Objects/Specific/Chemistry/pills_canister.rsi
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills_canister.rsi
-    state: pill_canister
-  - type: Tag
-    tags:
-      - PillCanister
-  - type: Storage
-    grid:
-    - 0,0,4,1
-    quickInsert: true
-    areaInsert: true
-    areaInsertRadius: 1
-    storageInsertSound: /Audio/Effects/pill_insert.ogg
-    storageRemoveSound: /Audio/Effects/pill_remove.ogg
-  - type: Dumpable
+      - type: FitsInDispenser
+        solution: beaker
+      - type: RefillableSolution
+        solution: beaker
+      - type: DrainableSolution
+        solution: beaker
+      - type: ExaminableSolution
+        solution: beaker
+      - type: DrawableSolution
+        solution: beaker
+      - type: InjectableSolution
+        solution: beaker
+      - type: SolutionTransfer
+        canChangeTransferAmount: true
+      - type: SolutionItemStatus
+        solution: beaker
+      - type: Drink
+        solution: beaker
+      - type: SolutionContainerVisuals
+        maxFillLevels: 6
+        fillBaseName: beaker
+      - type: DamageOnLand
+        damage:
+          types:
+            Blunt: 10 # glass resistance set reduces damage. Need to land twice (w/o hitting wall)
+      - type: DamageOnHighSpeedImpact
+        minimumSpeed: 2
+        damage:
+          types:
+            Blunt: 5
+  - type: entity
+    parent: BaseItem
+    id: BaseBeakerMetallic
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/beaker.rsi
+        layers:
+          - state: beaker
+          - state: beaker1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 30
+      - type: Item
+        sprite: Objects/Specific/Chemistry/beaker.rsi
+      - type: Appearance
+      - type: Tag
+        tags: [GlassBeaker]
+      - type: Damageable
+        damageContainer: Inorganic
+        damageModifierSet: Glass
+      - type: UserInterface
+        interfaces:
+          enum.TransferAmountUiKey.Key:
+            type: TransferAmountBoundUserInterface
+      - type: MeleeWeapon
+        soundNoDamage:
+          path: /Audio/Effects/Fluids/splat.ogg
+        damage:
+          types:
+            Blunt: 0
+      - type: SolutionContainerManager
+        solutions:
+          beaker:
+            maxVol: 50
+      - type: MixableSolution
+        solution: beaker
+      - type: FitsInDispenser
+        solution: beaker
+      - type: RefillableSolution
+        solution: beaker
+      - type: DrainableSolution
+        solution: beaker
+      - type: ExaminableSolution
+        solution: beaker
+      - type: DrawableSolution
+        solution: beaker
+      - type: InjectableSolution
+        solution: beaker
+      - type: SolutionTransfer
+        canChangeTransferAmount: true
+      - type: SolutionItemStatus
+        solution: beaker
+      - type: Drink
+        solution: beaker
+      - type: SolutionContainerVisuals
+        maxFillLevels: 6
+        fillBaseName: beaker
+  - type: entity
+    parent: BaseBeaker
+    id: Beaker
+    name: beaker
+    description: Used to contain a moderate amount of chemicals and solutions.
+    components:
+      - type: StaticPrice
+        price: 10
+      - type: Spillable
+        solution: beaker
+      - type: PhysicalComposition
+        materialComposition:
+          Glass: 50
+      - type: SolutionContainerVisuals
+        maxFillLevels: 6
+        fillBaseName: beaker
+        inHandsMaxFillLevels: 3
+        inHandsFillBaseName: -fill-
+  - type: entity
+    parent: Beaker
+    id: CryoxadoneBeakerSmall
+    name: cryoxadone beaker
+    description: Filled with a reagent used in cryogenic tubes.
+    components:
+      - type: SolutionContainerManager
+        solutions:
+          beaker:
+            maxVol: 50
+            reagents:
+              - ReagentId: Cryoxadone
+                Quantity: 50
+  - type: entity
+    parent: BaseBeaker
+    id: LargeBeaker
+    name: large beaker
+    description: Used to contain a large amount of chemicals or solutions.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/beaker_large.rsi
+        layers:
+          - state: beakerlarge
+          - state: beakerlarge1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 20
+      - type: Item
+        size: Normal
+        sprite: Objects/Specific/Chemistry/beaker_large.rsi
+      - type: Appearance
+      - type: Spillable
+        solution: beaker
+      - type: SolutionContainerManager
+        solutions:
+          beaker:
+            maxVol: 100
+      - type: SolutionContainerVisuals
+        maxFillLevels: 6
+        fillBaseName: beakerlarge
+        inHandsMaxFillLevels: 4
+        inHandsFillBaseName: -fill-
+      - type: PhysicalComposition
+        materialComposition:
+          Glass: 100
+  - type: entity
+    parent: BaseItem
+    id: Dropper
+    name: dropper
+    description: Used to transfer small amounts of chemical solution between containers.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/dropper.rsi
+        layers:
+          - state: dropper
+          - state: dropper1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 40
+      - type: Item
+        sprite: Objects/Specific/Chemistry/dropper.rsi
+      - type: Appearance
+      - type: UserInterface
+        interfaces:
+          enum.TransferAmountUiKey.Key:
+            type: TransferAmountBoundUserInterface
+      - type: SolutionContainerManager
+        solutions:
+          injector:
+            maxVol: 5
+      - type: Injector
+        injectOnly: false
+        ignoreMobs: true
+        minTransferAmount: 1
+        maxTransferAmount: 5
+        transferAmount: 1
+        toggleState: 1 # draw
+      - type: ExaminableSolution
+        solution: dropper
+      - type: Spillable
+        solution: injector
+      - type: SolutionContainerVisuals
+        maxFillLevels: 1
+        fillBaseName: dropper
+        inHandsMaxFillLevels: 1
+        inHandsFillBaseName: -fill-
+  - type: entity
+    parent: BaseItem
+    id: BaseSyringe
+    name: syringe
+    description: Used to draw blood samples from mobs, or to inject them with reagents.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/syringe.rsi
+        layers:
+          - state: syringe1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+          - state: syringe_base0
+            map: [enum.SolutionContainerLayers.Base]
+      - type: Icon
+        sprite: Objects/Specific/Chemistry/syringe.rsi
+        state: syringe_base0
+      - type: Item
+        size: Tiny
+        sprite: Objects/Specific/Chemistry/syringe.rsi
+      - type: Appearance
+      - type: Tag
+        tags: [Syringe]
+      - type: SolutionContainerManager
+        solutions:
+          injector:
+            maxVol: 15
+      - type: Injector
+        injectOnly: false
+      - type: ExaminableSolution
+        solution: injector
+      - type: Spillable
+        solution: injector
+      - type: TrashOnSolutionEmpty
+        solution: injector
+      - type: SolutionContainerVisuals
+        maxFillLevels: 2
+        fillBaseName: syringe
+        inHandsMaxFillLevels: 3
+        inHandsFillBaseName: -fill-
+  - type: entity
+    parent: BaseSyringe
+    id: Syringe
+    components:
+      - type: Tag
+        tags: [Syringe, Trash]
+      - type: Injector
+        transferAmount: 15
+        toggleState: Draw
+  - type: entity
+    parent: BaseItem
+    id: Pill
+    name: pill
+    description: It's not a suppository.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/pills.rsi
+        state: pill
+      - type: StaticPrice
+        price: 0
+      - type: Item
+        size: Tiny
+        sprite: Objects/Specific/Chemistry/pills.rsi
+      - type: Tag
+        tags: [Pill]
+      - type: FlavorProfile
+        ignoreReagents: []
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 10
+            behaviors:
+              - !type:SpillBehavior
+                solution: food
+              - !type:DoActsBehavior
+                acts: [Destruction]
+      - type: Damageable
+        damageContainer: Inorganic
+      - type: Pill
+      - type: Food
+        forceFeedDelay: 1
+        transferAmount:
+        eatMessage: food-swallow
+        useSound: /Audio/Items/pill.ogg
+      - type: BadFood
+      - type: SolutionContainerManager
+        solutions:
+          food:
+            maxVol: 20
+      - type: SolutionSpiker
+        sourceSolution: food
+      - type: Extractable
+        grindableSolutionName: food
+  - type: entity
+    parent: BaseStorageItem
+    id: PillCanister
+    name: pill canister
+    description: Holds up to 10 pills.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Chemistry/pills_canister.rsi
+        state: pill_canister
+      - type: Item
+        size: Tiny
+        sprite: Objects/Specific/Chemistry/pills_canister.rsi
+      - type: Tag
+        tags: [PillCanister]
+      - type: Storage
+        grid: ['0,0,4,1']
+        quickInsert: true
+        areaInsert: true
+        areaInsertRadius: 1
+        storageInsertSound: /Audio/Effects/pill_insert.ogg
+        storageRemoveSound: /Audio/Effects/pill_remove.ogg
+      - type: Dumpable

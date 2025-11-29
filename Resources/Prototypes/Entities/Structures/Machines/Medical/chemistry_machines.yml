@@ -1,38 +1,34 @@
-- type: entity
-  id: BaseTabletopChemicalMachine
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  abstract: true
-  components:
-  - type: Transform
-    anchored: true
-  - type: SolutionContainerMixer
-  - type: ReactionMixer
-  - type: Sprite
-    drawdepth: SmallObjects
-    snapCardinals: true
-  - type: Appearance
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.17,0,0.20,0.4"
-        mask:
-        - TabletopMachineMask
-        layer:
-        - TabletopMachineLayer
-  - type: ItemSlots
-    slots:
-      mixer:
-        whitelist:
-          components:
-          - FitsInDispenser
-  - type: Machine
-  - type: WiresPanel
-  - type: WiresVisuals
-  - type: ContainerContainer
-    containers:
-      mixer: !type:ContainerSlot
-      machine_board: !type:Container
-      machine_parts: !type:Container
+  - type: entity
+    parent: [BaseMachinePowered, SmallConstructibleMachine]
+    id: BaseTabletopChemicalMachine
+    abstract: true
+    components:
+      - type: Sprite
+        drawdepth: SmallObjects
+        snapCardinals: true
+      - type: Appearance
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.17,0,0.20,0.4
+            mask: [TabletopMachineMask]
+            layer: [TabletopMachineLayer]
+      - type: Physics
+      - type: Transform
+        anchored: true
+      - type: ContainerContainer
+        containers:
+          mixer: !type:ContainerSlot
+          machine_board: !type:Container
+          machine_parts: !type:Container
+      - type: SolutionContainerMixer
+      - type: ReactionMixer
+      - type: ItemSlots
+        slots:
+          mixer:
+            whitelist:
+              components: [FitsInDispenser]
+      - type: Machine
+      - type: WiresPanel
+      - type: WiresVisuals

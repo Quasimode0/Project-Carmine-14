@@ -1,106 +1,95 @@
-- type: entity
-  name: soap
-  id: Soap
-  parent: BaseItem
-  description: A cheap bar of soap. Doesn't smell.
-  components:
-  - type: Tag
-    tags:
-    - Soap
-  - type: Sprite
-    sprite: Objects/Specific/Janitorial/soap.rsi
-    layers:
-    - state: soap-4
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    maxFillLevels: 4
-    fillBaseName: soap-
-    changeColor: false
-  - type: Appearance
-  - type: Item
-    sprite: Objects/Specific/Janitorial/soap.rsi
-    storedRotation: -90
-  - type: Slippery
-    paralyzeTime: 2
-    launchForwardsMultiplier: 1.5
-  - type: StepTrigger
-    triggerGroups:
-      types:
-      - SlipEntity
-    intersectRatio: 0.2
-  - type: CollisionWake
-    enabled: false
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      slips:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,0.4,0.3"
-        layer:
-        - SlipLayer
-        hard: false
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,0.4,0.3"
-        density: 10
-        mask:
-        - ItemMask
-  - type: SolutionContainerManager
-    solutions:
-      soap:
-        maxVol: 50
-        reagents:
-        - ReagentId: SoapReagent
-          Quantity: 50
-  - type: SolutionTransfer
-    transferAmount: 10
-    minTransferAmount: 1
-    maxTransferAmount: 25
-    canReceive: false
-    canChangeTransferAmount: true
-  - type: DrainableSolution
-    solution: soap
-  - type: DeleteOnSolutionEmpty
-    solution: soap
-  - type: PaintRemover
-  - type: FlavorProfile
-    flavors:
-      - clean
-  - type: Food
-    solution: soap
-  - type: BadFood
-  - type: CleansForensics
-  - type: Residue
-    residueAdjective: residue-slippery
-    residueColor: residue-green
-
-- type: entity
-  name: soap
-  id: SoapHomemade
-  parent: Soap
-  description: A homemade bar of soap. Smells of... well....
-  components:
-  - type: Sprite
-    layers:
-    - state: gibs-4
-      map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerVisuals
-    fillBaseName: gibs-
-  - type: Slippery
-    paralyzeTime: 2
-  - type: StepTrigger
-    triggerGroups:
-      types:
-      - SlipEntity
-  - type: Item
-    heldPrefix: gibs
-  - type: FlavorProfile
-    flavors:
-      - clean
-      - meaty
-  - type: Residue
-    residueAdjective: residue-slippery
-    residueColor: residue-red
+  - type: entity
+    parent: BaseItem
+    id: Soap
+    name: soap
+    description: A cheap bar of soap. Doesn't smell.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Janitorial/soap.rsi
+        layers:
+          - state: soap-4
+            map: [enum.SolutionContainerLayers.Fill]
+      - type: Item
+        sprite: Objects/Specific/Janitorial/soap.rsi
+        storedRotation: -90
+      - type: Appearance
+      - type: Tag
+        tags: [Soap]
+      - type: FlavorProfile
+        flavors: [clean]
+      - type: Fixtures
+        fixtures:
+          slips:
+            shape: !type:PhysShapeAabb
+              bounds: -0.4,-0.3,0.4,0.3
+            layer: [SlipLayer]
+            hard: false
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.4,-0.3,0.4,0.3
+            density: 10
+            mask: [ItemMask]
+      - type: Physics
+        bodyType: Dynamic
+      - type: SolutionContainerVisuals
+        maxFillLevels: 4
+        fillBaseName: soap-
+        changeColor: false
+      - type: Slippery
+        paralyzeTime: 2
+        launchForwardsMultiplier: 1.5
+      - type: StepTrigger
+        triggerGroups:
+          types: [SlipEntity]
+        intersectRatio: 0.2
+      - type: CollisionWake
+        enabled: false
+      - type: SolutionContainerManager
+        solutions:
+          soap:
+            maxVol: 50
+            reagents:
+              - ReagentId: SoapReagent
+                Quantity: 50
+      - type: SolutionTransfer
+        transferAmount: 10
+        minTransferAmount: 1
+        maxTransferAmount: 25
+        canReceive: false
+        canChangeTransferAmount: true
+      - type: DrainableSolution
+        solution: soap
+      - type: DeleteOnSolutionEmpty
+        solution: soap
+      - type: PaintRemover
+      - type: Food
+        solution: soap
+      - type: BadFood
+      - type: CleansForensics
+      - type: Residue
+        residueAdjective: residue-slippery
+        residueColor: residue-green
+  - type: entity
+    parent: Soap
+    id: SoapHomemade
+    name: soap
+    description: A homemade bar of soap. Smells of... well....
+    components:
+      - type: Sprite
+        layers:
+          - state: gibs-4
+            map: [enum.SolutionContainerLayers.Fill]
+      - type: Item
+        heldPrefix: gibs
+      - type: FlavorProfile
+        flavors: [clean, meaty]
+      - type: SolutionContainerVisuals
+        fillBaseName: gibs-
+      - type: Slippery
+        paralyzeTime: 2
+      - type: StepTrigger
+        triggerGroups:
+          types: [SlipEntity]
+      - type: Residue
+        residueAdjective: residue-slippery
+        residueColor: residue-red

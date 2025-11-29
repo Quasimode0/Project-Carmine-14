@@ -1,10 +1,10 @@
-- type: entity
-  parent: BaseSign
-  id: BaseFlag
-  abstract: true
-  components:
-  - type: WallMount
-    arc: 360
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Wallmounts/flags.rsi
+  - type: entity
+    parent: BaseSign
+    id: BaseFlag
+    abstract: true
+    components:
+      - type: Sprite
+        drawdepth: WallTops
+        sprite: Structures/Wallmounts/flags.rsi
+      - type: WallMount
+        arc: 360

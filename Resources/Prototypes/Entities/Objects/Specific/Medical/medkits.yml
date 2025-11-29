@@ -1,24 +1,21 @@
-- type: entity
-  name: first aid kit
-  description: It's an emergency medical kit for those serious boo-boos.
-  parent: BaseStorageItem
-  id: Medkit
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: firstaid
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,3,2
-  - type: Item
-    size: Large
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    heldPrefix: firstaid
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 150
-  - type: Tag
-    tags:
-    - Medkit
-
+  - type: entity
+    parent: BaseStorageItem
+    id: Medkit
+    name: first aid kit
+    description: It's an emergency medical kit for those serious boo-boos.
+    components:
+      - type: Sprite
+        sprite: Objects/Specific/Medical/firstaidkits.rsi
+        state: firstaid
+      - type: Item
+        size: Large
+        sprite: Objects/Specific/Medical/firstaidkits.rsi
+        heldPrefix: firstaid
+      - type: Tag
+        tags: [Medkit]
+      - type: Storage
+        maxItemSize: Small
+        grid: ['0,0,3,2']
+      - type: PhysicalComposition
+        materialComposition:
+          Plastic: 150

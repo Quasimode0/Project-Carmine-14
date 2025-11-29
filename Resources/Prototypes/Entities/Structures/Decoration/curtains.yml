@@ -1,85 +1,79 @@
-﻿- type: entity
-  id: BaseCurtains
-  parent: BaseStructure
-  name: curtains
-  description: Hides what others shouldn't see.
-  abstract: true
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Occluder
-  - type: AnimationPlayer
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,0.49"
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - Opaque
-  - type: Door
-    canCrush: false
-    performCollisionCheck: false
-    bumpOpen: false
-    clickOpen: true
-    closeTimeOne: 0.5
-    closeTimeTwo: 0.1
-    openTimeOne: 0.5
-    openTimeTwo: 0.1
-    openSound:
-      path: /Audio/Effects/curtain_openclose.ogg
-    closeSound:
-      path: /Audio/Effects/curtain_openclose.ogg
-  - type: Appearance
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialCloth1:
-            min: 1
-            max: 2
-  - type: WallMount
-    arc: 360
-
-- type: entity
-  id: HospitalCurtains
-  parent: BaseCurtains
-  suffix: Hospital
-  description: Contains less than 1% mercury.
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/hospital.rsi
-    layers:
-    - state: closed
-      map: ["enum.DoorVisualLayers.Base"]
-  - type: Construction
-    graph: Curtains
-    node: Curtains
-
-- type: entity
-  id: HospitalCurtainsOpen
-  parent: HospitalCurtains
-  suffix: Open, Hospital
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsOpen
-  - type: Physics
-    canCollide: false
+  - type: entity
+    parent: BaseStructure
+    id: BaseCurtains
+    name: curtains
+    description: Hides what others shouldn't see.
+    abstract: true
+    placement:
+      mode: SnapgridCenter
+    components:
+      - type: Appearance
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.49,-0.49,0.49,0.49
+            density: 100
+            mask: [FullTileMask]
+            layer: [Opaque]
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 5
+            behaviors:
+              - !type:DoActsBehavior
+                acts: [Destruction]
+              - !type:SpawnEntitiesBehavior
+                spawn:
+                  MaterialCloth1:
+                    min: 1
+                    max: 2
+      - type: Damageable
+        damageContainer: Inorganic
+        damageModifierSet: Wood
+      - type: Occluder
+      - type: AnimationPlayer
+      - type: Door
+        canCrush: false
+        performCollisionCheck: false
+        bumpOpen: false
+        clickOpen: true
+        closeTimeOne: 0.5
+        closeTimeTwo: 0.1
+        openTimeOne: 0.5
+        openTimeTwo: 0.1
+        openSound:
+          path: /Audio/Effects/curtain_openclose.ogg
+        closeSound:
+          path: /Audio/Effects/curtain_openclose.ogg
+      - type: WallMount
+        arc: 360
+  - type: entity
+    parent: BaseCurtains
+    id: HospitalCurtains
+    description: Contains less than 1% mercury.
+    suffix: Hospital
+    components:
+      - type: Sprite
+        snapCardinals: true
+        sprite: Structures/Decoration/Curtains/hospital.rsi
+        layers:
+          - state: closed
+            map: [enum.DoorVisualLayers.Base]
+      - type: Construction
+        graph: Curtains
+        node: Curtains
+  - type: entity
+    parent: HospitalCurtains
+    id: HospitalCurtainsOpen
+    suffix: Open, Hospital
+    components:
+      - type: Physics
+        canCollide: false
+      - type: Construction
+        graph: Curtains
+        node: CurtainsOpen
+      - type: Door
+        state: Open
+      - type: Occluder
+        enabled: false

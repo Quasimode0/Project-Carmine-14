@@ -1,100 +1,94 @@
-- type: entity
-  parent: BaseStructureDynamic
-  id: CrateGeneric
-  categories: [ HideSpawnMenu ]
-  name: crate
-  description: A large container for items.
-  components:
-  - type: Transform
-    noRot: true
-  - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
-    state: icon
-  - type: Sprite
-    noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: closed
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
-      map: ["enum.PaperLabelVisuals.Layer"]
-  - type: InteractionOutline
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.29"
-        density: 50
-        mask:
-        - CrateMask #this is so they can go under plastic flaps
-        layer:
-        - MachineLayer
-  - type: EntityStorage
-  - type: PlaceableSurface
-    isPlaceable: false # defaults to closed.
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateDoorOpen: open
-    stateDoorClosed: closed
-  - type: GenericVisualizer
-    visuals:
-      enum.PaperLabelVisuals.HasLabel:
-        enum.PaperLabelVisuals.Layer:
-          True: { visible: true }
-          False: { visible: false }
-      enum.PaperLabelVisuals.LabelType:
-        enum.PaperLabelVisuals.Layer:
-          Paper: { state: paper }
-          Bounty: { state: bounty }
-          CaptainsPaper: { state: captains_paper }
-          Invoice: { state: invoice }
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
-      whitelist:
-        components:
-        - Paper
-  - type: ContainerContainer
-    containers:
-      entity_storage: !type:Container
-      paper_label: !type:ContainerSlot
-  - type: ItemSlots
-  - type: StaticPrice
-    price: 50
-  - type: Construction
-    graph: CrateGenericSteel
-    node: crategenericsteel
-    containers:
-      - entity_storage
-  - type: RequireProjectileTarget
-
-- type: entity
-  parent: CrateGeneric
-  id: CrateBaseWeldable
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Weldable
-  - type: ResistLocker
+  - type: entity
+    parent: BaseStructureDynamic
+    id: CrateGeneric
+    name: crate
+    description: A large container for items.
+    categories: [HideSpawnMenu]
+    components:
+      - type: Sprite
+        noRot: true
+        sprite: Structures/Storage/Crates/generic.rsi
+        layers:
+          - state: base
+            map: [enum.StorageVisualLayers.Base]
+          - state: closed
+            map: [enum.StorageVisualLayers.Door]
+          - state: welded
+            visible: false
+            map: [enum.WeldableLayers.BaseWelded]
+          - state: paper
+            sprite: Structures/Storage/Crates/labels.rsi
+            map: [enum.PaperLabelVisuals.Layer]
+      - type: Icon
+        sprite: Structures/Storage/Crates/generic.rsi
+        state: icon
+      - type: StaticPrice
+        price: 50
+      - type: Appearance
+      - type: GenericVisualizer
+        visuals:
+          enum.PaperLabelVisuals.HasLabel:
+            enum.PaperLabelVisuals.Layer:
+              true: {visible: true}
+              false: {visible: false}
+          enum.PaperLabelVisuals.LabelType:
+            enum.PaperLabelVisuals.Layer:
+              Paper: {state: paper}
+              Bounty: {state: bounty}
+              CaptainsPaper: {state: captains_paper}
+              Invoice: {state: invoice}
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.4,-0.4,0.4,0.29
+            density: 50
+            mask:
+              - CrateMask # this is so they can go under plastic flaps
+            layer: [MachineLayer]
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 50
+            behaviors:
+              - !type:DoActsBehavior
+                acts: [Destruction]
+              - !type:PlaySoundBehavior
+                sound:
+                  collection: MetalBreak
+      - type: Physics
+      - type: Damageable
+        damageContainer: StructuralInorganic
+        damageModifierSet: Metallic
+      - type: Transform
+        noRot: true
+      - type: Construction
+        graph: CrateGenericSteel
+        node: crategenericsteel
+        containers: [entity_storage]
+      - type: ContainerContainer
+        containers:
+          entity_storage: !type:Container
+          paper_label: !type:ContainerSlot
+      - type: InteractionOutline
+      - type: EntityStorage
+      - type: PlaceableSurface
+        isPlaceable: false # defaults to closed.
+      - type: EntityStorageVisuals
+        stateDoorOpen: open
+        stateDoorClosed: closed
+      - type: PaperLabel
+        labelSlot:
+          insertVerbText: Attach Label
+          ejectVerbText: Remove Label
+          whitelist:
+            components: [Paper]
+      - type: ItemSlots
+      - type: RequireProjectileTarget
+  - type: entity
+    parent: CrateGeneric
+    id: CrateBaseWeldable
+    categories: [HideSpawnMenu]
+    components:
+      - type: Weldable
+      - type: ResistLocker

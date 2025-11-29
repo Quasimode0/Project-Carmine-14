@@ -1,23 +1,22 @@
-﻿- type: entity
-  parent: BoriaticGeneratorHercules
-  id: BoriaticGeneratorHerculesShuttle
-  suffix: BoriaticFuel, 15 kW, Ship
-  components:
-    - type: FuelGenerator
-      on: true
-    - type: Transform
-      anchored: true
-    - type: PortableGenerator
-      startOnMapInit: true
-
-- type: entity
-  parent: BoriaticGeneratorEinstein
-  id: BoriaticGeneratorEinsteinShuttle
-  suffix: BoriaticFuel, 95 kW, Ship
-  components:
-    - type: FuelGenerator
-      on: true
-    - type: Transform
-      anchored: true
-    - type: PortableGenerator
-      startOnMapInit: true
+  - type: entity
+    parent: BoriaticGeneratorHercules
+    id: BoriaticGeneratorHerculesShuttle
+    suffix: BoriaticFuel, 15 kW, Ship
+    components:
+      - type: Transform
+        anchored: true
+      - type: FuelGenerator
+        on: true
+      - type: PortableGenerator
+        startOnMapInit: true
+  - type: entity
+    parent: BoriaticGeneratorEinstein
+    id: BoriaticGeneratorEinsteinShuttle
+    suffix: BoriaticFuel, 95 kW, Ship
+    components:
+      - type: Transform
+        anchored: true
+      - type: FuelGenerator
+        on: true
+      - type: PortableGenerator
+        startOnMapInit: true

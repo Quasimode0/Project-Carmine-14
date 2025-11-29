@@ -1,12 +1,11 @@
-- type: entity
-  id: StressTest
-  name: stress test
-  suffix: DEBUG
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: Sprite
-    sprite: Effects/explosion.rsi
-    state: explosion
-  - type: StressTestMovement
+  - type: entity
+    id: StressTest
+    name: stress test
+    suffix: DEBUG
+    components:
+      - type: Sprite
+        sprite: Effects/explosion.rsi
+        state: explosion
+      - type: Tag
+        tags: [Debug]
+      - type: StressTestMovement

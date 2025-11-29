@@ -1,15 +1,12 @@
-# File: Resources/Prototypes/Entities/Virtual/tether.yml
-
-- type: entity
-  id: TetherEntity
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Physics
-    bodyType: Dynamic
-    sleepingAllowed: false
-  - type: Fixtures
-    fixtures:
-      tether:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.35
+  - type: entity
+    id: TetherEntity
+    categories: [HideSpawnMenu]
+    components:
+      - type: Fixtures
+        fixtures:
+          tether:
+            shape: !type:PhysShapeCircle
+              radius: 0.35
+      - type: Physics
+        bodyType: Dynamic
+        sleepingAllowed: false

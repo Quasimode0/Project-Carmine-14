@@ -1,74 +1,70 @@
-- type: entity
-  name: generic rubber stamp
-  parent: BaseItem
-  id: RubberStampBase
-  description: A rubber stamp for stamping important documents.
-  abstract: true
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-default
-    stampState: "paper_stamp-generic"
-    stampedColor: "#a23e3e"
-    sound:
-      path: /Audio/Items/Stamp/thick_stamp_sub.ogg
-      params:
-        volume: -2
-        maxDistance: 5
-  - type: Sprite
-    sprite: Objects/Misc/stamps.rsi
-    state: stamp-mime
-  - type: Item
-    size: Tiny
-  - type: StealTarget
-    stealGroup: Stamp
-
-- type: entity
-  name: alternate rubber stamp
-  parent: RubberStampBase
-  id: RubberStampBaseAlt
-  abstract: true
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-default
-    stampState: "paper_stamp-generic"
-    sound:
-      path: /Audio/Items/Stamp/automatic_stamp.ogg
-      params:
-        volume: -2
-        maxDistance: 5
-
-- type: entity
-  name: trader's rubber stamp
-  parent: RubberStampBase
-  id: RubberStampTrader
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-trader
-    stampedColor: "#000000"
-    stampState: "paper_stamp-trader"
-  - type: Sprite
-    state: stamp-trader
-
-- type: entity
-  name: APPROVED rubber stamp
-  parent: RubberStampBaseAlt
-  id: RubberStampApproved
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-approved
-    stampedColor: "#00be00"
-    stampState: "paper_stamp-ok"
-  - type: Sprite
-    state: stamp-ok
-
-- type: entity
-  name: DENIED rubber stamp
-  parent: RubberStampBaseAlt
-  id: RubberStampDenied
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-denied
-    stampedColor: "#a23e3e"
-    stampState: "paper_stamp-deny"
-  - type: Sprite
-    state: stamp-deny
+  - type: entity
+    parent: BaseItem
+    id: RubberStampBase
+    name: generic rubber stamp
+    description: A rubber stamp for stamping important documents.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/stamps.rsi
+        state: stamp-mime
+      - type: Item
+        size: Tiny
+      - type: Stamp
+        stampedName: stamp-component-stamped-name-default
+        stampState: paper_stamp-generic
+        stampedColor: '#a23e3e'
+        sound:
+          path: /Audio/Items/Stamp/thick_stamp_sub.ogg
+          params:
+            volume: -2
+            maxDistance: 5
+      - type: StealTarget
+        stealGroup: Stamp
+  - type: entity
+    parent: RubberStampBase
+    id: RubberStampBaseAlt
+    name: alternate rubber stamp
+    abstract: true
+    components:
+      - type: Stamp
+        stampedName: stamp-component-stamped-name-default
+        stampState: paper_stamp-generic
+        sound:
+          path: /Audio/Items/Stamp/automatic_stamp.ogg
+          params:
+            volume: -2
+            maxDistance: 5
+  - type: entity
+    parent: RubberStampBase
+    id: RubberStampTrader
+    name: trader's rubber stamp
+    components:
+      - type: Sprite
+        state: stamp-trader
+      - type: Stamp
+        stampedName: stamp-component-stamped-name-trader
+        stampedColor: '#000000'
+        stampState: paper_stamp-trader
+  - type: entity
+    parent: RubberStampBaseAlt
+    id: RubberStampApproved
+    name: APPROVED rubber stamp
+    components:
+      - type: Sprite
+        state: stamp-ok
+      - type: Stamp
+        stampedName: stamp-component-stamped-name-approved
+        stampedColor: '#00be00'
+        stampState: paper_stamp-ok
+  - type: entity
+    parent: RubberStampBaseAlt
+    id: RubberStampDenied
+    name: DENIED rubber stamp
+    components:
+      - type: Sprite
+        state: stamp-deny
+      - type: Stamp
+        stampedName: stamp-component-stamped-name-denied
+        stampedColor: '#a23e3e'
+        stampState: paper_stamp-deny

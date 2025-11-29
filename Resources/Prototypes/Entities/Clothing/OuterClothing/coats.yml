@@ -1,71 +1,67 @@
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatBomber
-  name: bomber jacket
-  description: A thick, well-worn WW2 leather bomber jacket.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/bomber.rsi
-  - type: TemperatureProtection
-    coefficient: 0.1
-
-- type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
-  id: ClothingOuterCoatDetective
-  name: detective trenchcoat
-  description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/detective.rsi
-  - type: Armor #same as regular sec armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.80
-
-- type: entity
-  parent: ClothingOuterCoatDetective
-  id: ClothingOuterCoatDetectiveLoadout
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatGentle
-  name: gentle coat
-  description: A gentle coat for a gentle man, or woman.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatTrench
-  name: trench coat
-  description: A comfy trench coat.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
-  - type: TemperatureProtection
-    coefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.95
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
+  - type: entity
+    parent: ClothingOuterStorageBase
+    id: ClothingOuterCoatBomber
+    name: bomber jacket
+    description: A thick, well-worn WW2 leather bomber jacket.
+    components:
+      - type: Sprite
+        sprite: Clothing/OuterClothing/Coats/bomber.rsi
+      - type: Clothing
+        sprite: Clothing/OuterClothing/Coats/bomber.rsi
+      - type: TemperatureProtection
+        coefficient: 0.1
+  - type: entity
+    parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+    id: ClothingOuterCoatDetective
+    name: detective trenchcoat
+    description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
+    components:
+      - type: Sprite
+        sprite: Clothing/OuterClothing/Coats/detective.rsi
+      - type: Clothing
+        sprite: Clothing/OuterClothing/Coats/detective.rsi
+      - type: Armor # same as regular sec armor
+        modifiers:
+          coefficients:
+            Blunt: 0.70
+            Slash: 0.70
+            Piercing: 0.70
+            Heat: 0.80
+  - type: entity
+    parent: ClothingOuterCoatDetective
+    id: ClothingOuterCoatDetectiveLoadout
+  - type: entity
+    parent: ClothingOuterStorageBase
+    id: ClothingOuterCoatGentle
+    name: gentle coat
+    description: A gentle coat for a gentle man, or woman.
+    components:
+      - type: Sprite
+        sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+      - type: Clothing
+        sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+  - type: entity
+    parent: ClothingOuterStorageBase
+    id: ClothingOuterCoatTrench
+    name: trench coat
+    description: A comfy trench coat.
+    components:
+      - type: Sprite
+        sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
+      - type: Clothing
+        sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
+      - type: Armor
+        modifiers:
+          coefficients:
+            Slash: 0.95
+      - type: TemperatureProtection
+        coefficient: 0.1
+      - type: Food
+        requiresSpecialDigestion: true
+      - type: SolutionContainerManager
+        solutions:
+          food:
+            maxVol: 20
+            reagents:
+              - ReagentId: Fiber
+                Quantity: 20

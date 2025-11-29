@@ -1,35 +1,28 @@
-# Ripley
-
-- type: entity
-  id: RipleyCentralElectronics
-  parent: BaseElectronics
-  name: ripley central control module
-  description: The electrical control center for the ripley mech.
-  components:
-    - type: Item
-      storedRotation: 0
-    - type: Sprite
-      sprite: Objects/Misc/module.rsi
-      state: mainboard
-    - type: Tag
-      tags:
-      - RipleyCentralControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
-
-- type: entity
-  id: RipleyPeripheralsElectronics
-  parent: BaseElectronics
-  name: ripley peripherals control module
-  description: The electrical peripherals control for the ripley mech.
-  components:
-    - type: Sprite
-      sprite: Objects/Misc/module.rsi
-      state: id_mod
-    - type: Tag
-      tags:
-      - RipleyPeripheralsControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+  - type: entity
+    parent: BaseElectronics
+    id: RipleyCentralElectronics
+    name: ripley central control module
+    description: The electrical control center for the ripley mech.
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/module.rsi
+        state: mainboard
+      - type: Item
+        storedRotation: 0
+      - type: Tag
+        tags: [RipleyCentralControlModule]
+      - type: GuideHelp
+        guides: [Robotics]
+  - type: entity
+    parent: BaseElectronics
+    id: RipleyPeripheralsElectronics
+    name: ripley peripherals control module
+    description: The electrical peripherals control for the ripley mech.
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/module.rsi
+        state: id_mod
+      - type: Tag
+        tags: [RipleyPeripheralsControlModule]
+      - type: GuideHelp
+        guides: [Robotics]

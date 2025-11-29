@@ -1,67 +1,65 @@
-﻿- type: entity
-  parent: BaseHandheldInstrument
-  id: MusicalLungInstrument
-  name: musical lung
-  description: The spiritual and magical lung of a former opera singer. Though, to be honest, the vocal chords make the performance.
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: lung-l
-  - type: Instrument
-    program: 121
-  - type: Item
-    size: Small
-
-- type: entity
-  parent: BaseHandheldInstrument
-  id: SeashellInstrument
-  name: seashell
-  description: For laying down the shoreline beat.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/otherinstruments.rsi
-    state: seashell
-  - type: Instrument
-    program: 122
-  - type: Item
-    size: Normal
-
-- type: entity
-  parent: BaseHandheldInstrument
-  id: BirdToyInstrument
-  name: bird whistle
-  description: A delightful little whistle in the shape of a bird. It sings beautifully.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/otherinstruments.rsi
-    state: birdtoy
-  - type: Instrument
-    program: 123
-  - type: Item
-    size: Small
-    storedRotation: 90
+  - type: entity
+    parent: BaseHandheldInstrument
+    id: MusicalLungInstrument
+    name: musical lung
+    description: The spiritual and magical lung of a former opera singer. Though, to be honest, the vocal chords make the performance.
+    components:
+      - type: Sprite
+        sprite: Mobs/Species/Human/organs.rsi
+        state: lung-l
+      - type: Item
+        size: Small
+      - type: Instrument
+        program: 121
+  - type: entity
+    parent: BaseHandheldInstrument
+    id: SeashellInstrument
+    name: seashell
+    description: For laying down the shoreline beat.
+    components:
+      - type: Sprite
+        sprite: Objects/Fun/Instruments/otherinstruments.rsi
+        state: seashell
+      - type: Item
+        size: Normal
+      - type: Instrument
+        program: 122
+  - type: entity
+    parent: BaseHandheldInstrument
+    id: BirdToyInstrument
+    name: bird whistle
+    description: A delightful little whistle in the shape of a bird. It sings beautifully.
+    components:
+      - type: Sprite
+        sprite: Objects/Fun/Instruments/otherinstruments.rsi
+        state: birdtoy
+      - type: Item
+        size: Small
+        storedRotation: 90
 
 # Entity is renamed to hijack its id
 # ID is redefined in Resources/Prototypes/_Harmony/Entities/Objects/Devices/red_phone.yml
 # child entites: PhoneInstrumentSyndicate, BananaPhoneInstrument
-- type: entity
-  parent: BaseHandheldInstrument
-  id: PhoneInstrumentUpstream # Harmony
-  name: red phone
-  description: Should anything ever go wrong...
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/Instruments/otherinstruments.rsi
-    state: red_phone
-  - type: EmitSoundOnLand
-    sound:
-       path: /Audio/Items/ring.ogg
-  - type: Instrument
-    program: 124
-  - type: Item
-    size: Small
-  - type: Prayable
-    sentMessage: prayer-popup-notify-centcom-sent
-    notificationPrefix: prayer-chat-notify-centcom
-    verb: prayer-verbs-call
-    verbImage: null
+      - type: Instrument
+        program: 123
+  - type: entity
+    parent: BaseHandheldInstrument
+    id: PhoneInstrumentUpstream
+    name: red phone
+    description: Should anything ever go wrong...
+    components:
+      - type: Sprite
+        sprite: Objects/Fun/Instruments/otherinstruments.rsi
+        state: red_phone
+      - type: Item
+        size: Small
+      - type: EmitSoundOnLand
+        sound:
+          path: /Audio/Items/ring.ogg
+      - type: Instrument
+        program: 124
+      - type: Prayable
+        sentMessage: prayer-popup-notify-centcom-sent
+        notificationPrefix: prayer-chat-notify-centcom
+        verb: prayer-verbs-call
+        verbImage:

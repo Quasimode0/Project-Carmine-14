@@ -1,65 +1,61 @@
-#### Medical
-- type: entity
-  parent: ClothingHandsButcherable
-  id: ClothingHandsGlovesLatex
-  name: latex gloves
-  description: Thin sterile latex gloves. Basic PPE for any doctor.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
-  - type: Fiber
-    fiberMaterial: fibers-latex
-  - type: FingerprintMask
-
-- type: entity
-  parent: ClothingHandsButcherable
-  id: ClothingHandsGlovesNitrile
-  name: nitrile gloves
-  description: High-quality nitrile gloves. Expensive medical PPE.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
-  - type: Fiber
-    fiberMaterial: fibers-nitrile
-  - type: FingerprintMask
+  - type: entity
+    parent: ClothingHandsButcherable
+    id: ClothingHandsGlovesLatex
+    name: latex gloves
+    description: Thin sterile latex gloves. Basic PPE for any doctor.
+    components:
+      - type: Sprite
+        sprite: Clothing/Hands/Gloves/latex.rsi
+      - type: Clothing
+        sprite: Clothing/Hands/Gloves/latex.rsi
+      - type: Fiber
+        fiberMaterial: fibers-latex
+      - type: FingerprintMask
+  - type: entity
+    parent: ClothingHandsButcherable
+    id: ClothingHandsGlovesNitrile
+    name: nitrile gloves
+    description: High-quality nitrile gloves. Expensive medical PPE.
+    components:
+      - type: Sprite
+        sprite: Clothing/Hands/Gloves/nitrile.rsi
+      - type: Clothing
+        sprite: Clothing/Hands/Gloves/nitrile.rsi
+      - type: Fiber
+        fiberMaterial: fibers-nitrile
+      - type: FingerprintMask
 ####
-
-- type: entity
-  parent: ClothingHandsGlovesColorBlack
-  id: ClothingHandsGlovesCombat
-  name: combat gloves
-  description: These tactical gloves are fireproof and shock resistant.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/combat.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/combat.rsi
-  - type: GloveHeatResistance
-    heatResistance: 1400
-  - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-insulative
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-
-- type: entity
-  parent: ClothingHandsButcherable
-  id: ClothingHandsGlovesFingerless
-  name: fingerless gloves
-  description: Plain black gloves without fingertips for the hard working.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
-  - type: Fiber
-    fiberMaterial: fibers-synthetic
-    fiberColor: fibers-black
+  - type: entity
+    parent: ClothingHandsGlovesColorBlack
+    id: ClothingHandsGlovesCombat
+    name: combat gloves
+    description: These tactical gloves are fireproof and shock resistant.
+    components:
+      - type: Sprite
+        sprite: Clothing/Hands/Gloves/combat.rsi
+      - type: Clothing
+        sprite: Clothing/Hands/Gloves/combat.rsi
+      - type: Armor
+        modifiers:
+          coefficients:
+            Blunt: 0.95
+            Slash: 0.95
+            Piercing: 0.95
+      - type: GloveHeatResistance
+        heatResistance: 1400
+      - type: Insulated
+      - type: Fiber
+        fiberMaterial: fibers-insulative
+  - type: entity
+    parent: ClothingHandsButcherable
+    id: ClothingHandsGlovesFingerless
+    name: fingerless gloves
+    description: Plain black gloves without fingertips for the hard working.
+    components:
+      - type: Sprite
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+      - type: Clothing
+        sprite: Clothing/Hands/Gloves/fingerless.rsi
+      - type: Fiber
+        fiberMaterial: fibers-synthetic
+        fiberColor: fibers-black

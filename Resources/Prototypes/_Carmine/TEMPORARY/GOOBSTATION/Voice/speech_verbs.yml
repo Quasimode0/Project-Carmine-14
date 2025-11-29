@@ -1,8 +1,8 @@
-- type: speechSounds
-  id: Lathe
-  saySound:
-    path: /Audio/Machines/beep.ogg
-  askSound:
-    path: /Audio/Machines/beep.ogg
-  exclaimSound:
-    path: /Audio/Machines/beep.ogg
+  - type: speechSounds
+    id: Lathe
+    saySound:
+      path: /Audio/Machines/beep.ogg
+    askSound:
+      path: /Audio/Machines/beep.ogg
+    exclaimSound:
+      path: /Audio/Machines/beep.ogg

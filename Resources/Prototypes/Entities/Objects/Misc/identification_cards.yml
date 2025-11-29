@@ -1,72 +1,64 @@
-- type: entity
-  parent: Clothing
-  id: IDCardStandard
-  name: identification card
-  description: A card necessary to access various areas aboard the station.
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-  - type: Clothing
-    slots:
-    - idcard
-    sprite: Objects/Misc/id_cards.rsi
-  - type: Item
-    size: Small
-    heldPrefix: default
-    storedRotation: -90
-  - type: Access
-  - type: IdCard
-  - type: StationRecordKeyStorage
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - WhitelistChameleon
-  - type: StealTarget
-    stealGroup: IDCard
-  - type: NanoChatCard # DeltaV
-  - type: MiningPoints # DeltaV
-  - type: DynamicCodeHolder
+  - type: entity
+    parent: Clothing
+    id: IDCardStandard
+    name: identification card
+    description: A card necessary to access various areas aboard the station.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/id_cards.rsi
+      - type: Item
+        size: Small
+        heldPrefix: default
+        storedRotation: -90
+      - type: Clothing
+        slots: [idcard]
+        sprite: Objects/Misc/id_cards.rsi
+      - type: Tag
+        tags: [DoorBumpOpener, WhitelistChameleon]
+      - type: Access
+      - type: IdCard
+      - type: StationRecordKeyStorage
+      - type: StealTarget
+        stealGroup: IDCard
+      - type: NanoChatCard # DeltaV
+      - type: MiningPoints # DeltaV
+      - type: DynamicCodeHolder
 
-#IDs with layers
-
-- type: entity
-  parent: IDCardStandard
-  id: PassengerIDCard
-  name: passenger ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: department
-      color: "#878787"
-    - state: subdepartment
-      color: "#878787"
-    - state: passenger
-  - type: PresetIdCard
-    job: Passenger
-
-- type: entity
-  parent: IDCardStandard
-  id: CaptainIDCard
-  name: captain ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: gold
-    - state: departmenthead
-      color: "#1B67A5"
-    - state: subdepartment
-      color: "#1B67A5"
-    - state: captain
-  - type: Item
-    heldPrefix: gold
-  - type: PresetIdCard
-    job: Captain
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - WhitelistChameleon
-    - HighRiskItem
-  - type: StealTarget
-    stealGroup: CaptainIDCard
+# IDs with layers
+  - type: entity
+    parent: IDCardStandard
+    id: PassengerIDCard
+    name: passenger ID card
+    components:
+      - type: Sprite
+        layers:
+          - state: default
+          - state: department
+            color: '#878787'
+          - state: subdepartment
+            color: '#878787'
+          - state: passenger
+      - type: PresetIdCard
+        job: Passenger
+  - type: entity
+    parent: IDCardStandard
+    id: CaptainIDCard
+    name: captain ID card
+    components:
+      - type: Sprite
+        layers:
+          - state: gold
+          - state: departmenthead
+            color: '#1B67A5'
+          - state: subdepartment
+            color: '#1B67A5'
+          - state: captain
+      - type: Item
+        heldPrefix: gold
+      - type: Tag
+        tags: [DoorBumpOpener, WhitelistChameleon, HighRiskItem]
+      - type: PresetIdCard
+        job: Captain
+      - type: StealTarget
+        stealGroup: CaptainIDCard

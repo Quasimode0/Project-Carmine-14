@@ -1,57 +1,54 @@
-- type: entity
-  parent: [ClothingHeadBaseButcherable, BaseFoldable]
-  id: ClothingHeadHeadHatBaseFlippable
-  abstract: true
-  components:
-  - type: Appearance
-  - type: Foldable
-    canFoldInsideContainer: true
-    unfoldVerbText: fold-flip-verb
-    foldVerbText: fold-flip-verb
-  - type: FoldableClothing
-    foldedEquippedPrefix: flipped
-    foldedHeldPrefix: flipped
-  - type: Sprite
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-    - state: icon_flipped
-      map: ["foldedLayer"]
-      visible: false
-
-- type: entity
-  parent: ClothingHeadHeadHatBaseFlippable
-  id: ClothingHeadHeadHatBaseFlipped
-  suffix: flipped
-  abstract: true
-  components:
-  - type: Foldable
-    folded: true
-  - type: Clothing
-    equippedPrefix: flipped
-  - type: Item
-    heldPrefix: flipped
-  - type: Sprite
-    layers:
-    - state: icon
-      map: [ "unfoldedLayer" ]
-      visible: false
-    - state: icon_flipped
-      map: ["foldedLayer"]
-      visible: true
-
-- type: entity
-  parent: ClothingHeadHeadHatBaseFlippable
-  id: ClothingHeadHatBlacksoft
-  name: black cap
-  description: "It's a baseball hat in a tasteless black colour."
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Soft/blacksoft.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Soft/blacksoft.rsi
-
-- type: entity
-  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatBlacksoft]
-  id: ClothingHeadHatBlacksoftFlipped
-  name: black cap
+  - type: entity
+    parent: [ClothingHeadBaseButcherable, BaseFoldable]
+    id: ClothingHeadHeadHatBaseFlippable
+    abstract: true
+    components:
+      - type: Sprite
+        layers:
+          - state: icon
+            map: [unfoldedLayer]
+          - state: icon_flipped
+            map: [foldedLayer]
+            visible: false
+      - type: Appearance
+      - type: Foldable
+        canFoldInsideContainer: true
+        unfoldVerbText: fold-flip-verb
+        foldVerbText: fold-flip-verb
+      - type: FoldableClothing
+        foldedEquippedPrefix: flipped
+        foldedHeldPrefix: flipped
+  - type: entity
+    parent: ClothingHeadHeadHatBaseFlippable
+    id: ClothingHeadHeadHatBaseFlipped
+    suffix: flipped
+    abstract: true
+    components:
+      - type: Sprite
+        layers:
+          - state: icon
+            map: [unfoldedLayer]
+            visible: false
+          - state: icon_flipped
+            map: [foldedLayer]
+            visible: true
+      - type: Item
+        heldPrefix: flipped
+      - type: Clothing
+        equippedPrefix: flipped
+      - type: Foldable
+        folded: true
+  - type: entity
+    parent: ClothingHeadHeadHatBaseFlippable
+    id: ClothingHeadHatBlacksoft
+    name: black cap
+    description: It's a baseball hat in a tasteless black colour.
+    components:
+      - type: Sprite
+        sprite: Clothing/Head/Soft/blacksoft.rsi
+      - type: Clothing
+        sprite: Clothing/Head/Soft/blacksoft.rsi
+  - type: entity
+    parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatBlacksoft]
+    id: ClothingHeadHatBlacksoftFlipped
+    name: black cap

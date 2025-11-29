@@ -1,30 +1,28 @@
-- type: entity
-  parent: [ClothingHeadBaseButcherable, BaseFoldable]
-  id: ClothingHeadBandBase
-  abstract: true
-  components:
-  - type: Foldable
-    folded: true
-  - type: Mask
-    isToggled: true
-  - type: IngestionBlocker
-    enabled: false
-  - type: IdentityBlocker
-    enabled: false
-    coverage: MOUTH
-  - type: Sprite # needed for vendor inventory icons
-    layers:
-    - state: icon
-      map: ["foldedLayer"]
-      visible: true
-    - state: icon_mask
-      map: [ "unfoldedLayer" ]
-      visible: false
-  - type: Tag
-    tags:
-    - Bandana
-
-- type: entity
-  parent: [ClothingHeadBandBase, ClothingMaskBandBlack]
-  id: ClothingHeadBandBlack
-  name: black bandana
+  - type: entity
+    parent: [ClothingHeadBaseButcherable, BaseFoldable]
+    id: ClothingHeadBandBase
+    abstract: true
+    components:
+      - type: Sprite # needed for vendor inventory icons
+        layers:
+          - state: icon
+            map: [foldedLayer]
+            visible: true
+          - state: icon_mask
+            map: [unfoldedLayer]
+            visible: false
+      - type: Tag
+        tags: [Bandana]
+      - type: Foldable
+        folded: true
+      - type: Mask
+        isToggled: true
+      - type: IngestionBlocker
+        enabled: false
+      - type: IdentityBlocker
+        enabled: false
+        coverage: MOUTH
+  - type: entity
+    parent: [ClothingHeadBandBase, ClothingMaskBandBlack]
+    id: ClothingHeadBandBlack
+    name: black bandana

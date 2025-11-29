@@ -1,4 +1,3 @@
-- type: soundCollection
-  id: InternalsBreathing
-  files:
-  - /Audio/Internals/internals_breathing.ogg
+  - type: soundCollection
+    id: InternalsBreathing
+    files: [/Audio/Internals/internals_breathing.ogg]

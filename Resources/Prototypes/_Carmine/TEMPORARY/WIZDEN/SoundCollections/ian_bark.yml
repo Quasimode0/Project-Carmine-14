@@ -1,4 +1,3 @@
-- type: soundCollection
-  id: IanBark
-  files:
-  - /Audio/Animals/small_dog_bark_happy.ogg
+  - type: soundCollection
+    id: IanBark
+    files: [/Audio/Animals/small_dog_bark_happy.ogg]

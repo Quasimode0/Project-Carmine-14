@@ -1,15 +1,15 @@
-- type: entity
-  id: BaseFoldable
-  name: "foldable"
-  abstract: true
-  components:
-  - type: Foldable
-  - type: GenericVisualizer
-    visuals:
-      enum.FoldedVisuals.State:
-        foldedLayer:
-          True: {visible: true}
-          False: {visible: false}
-        unfoldedLayer:
-          True: {visible: false}
-          False: {visible: true}
+  - type: entity
+    id: BaseFoldable
+    name: foldable
+    abstract: true
+    components:
+      - type: GenericVisualizer
+        visuals:
+          enum.FoldedVisuals.State:
+            foldedLayer:
+              true: {visible: true}
+              false: {visible: false}
+            unfoldedLayer:
+              true: {visible: false}
+              false: {visible: true}
+      - type: Foldable

@@ -1,76 +1,69 @@
-﻿- type: entity
-  id: BaseStockPart
-  name: stock part
-  parent: BaseItem
-  description: What?
-  abstract: true
-  components:
-    - type: Sprite
-      sprite: Objects/Misc/stock_parts.rsi
-      scale: 0.8, 0.8
-    - type: Item
-      size: Tiny
-    - type: Stack
-      count: 1
-    - type: PhysicalComposition #Goobstation - Recycle update
-      materialComposition:
-        Steel: 12
-        Plastic: 12
-    - type: StockPart # Goobstation
-
-- type: entity
-  id: CapacitorStockPart
-  name: capacitor
-  parent: BaseStockPart
-  description: A basic capacitor used in the construction of a variety of devices.
-  suffix: Rating 1
-  components:
-    - type: Sprite
-      state: capacitor
-    - type: MachinePart
-      part: Capacitor
-      rating: 1
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - CapacitorStockPart
-    - type: Tag
-      tags:
-        - CapacitorStockPart
-    - type: Stack
-      stackType: Capacitor
-
-- type: entity
-  id: MicroManipulatorStockPart
-  name: manipulator
-  parent: BaseStockPart
-  description: A basic manipulator used in the construction of a variety of devices.
-  suffix: Rating 1
-  components:
-    - type: Sprite
-      state: micro_mani
-    - type: MachinePart
-      part: Manipulator
-      rating: 1
-    - type: Stack
-      stackType: MicroManipulator
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MicroManipulatorStockPart
-
-- type: entity
-  id: MatterBinStockPart
-  name: matter bin
-  parent: BaseStockPart
-  description: A basic matter bin used in the construction of a variety of devices.
-  suffix: Rating 1
-  components:
-    - type: Sprite
-      state: matter_bin
-    - type: MachinePart
-      part: MatterBin
-      rating: 1
-    - type: Stack
-      stackType: MatterBin
-    - type: ReverseEngineering # Nyano
-      recipes:
-        - MatterBinStockPart
+  - type: entity
+    parent: BaseItem
+    id: BaseStockPart
+    name: stock part
+    description: What?
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Misc/stock_parts.rsi
+        scale: 0.8, 0.8
+      - type: Item
+        size: Tiny
+      - type: Stack
+        count: 1
+      - type: PhysicalComposition # Goobstation - Recycle update
+        materialComposition:
+          Steel: 12
+          Plastic: 12
+      - type: StockPart # Goobstation
+  - type: entity
+    parent: BaseStockPart
+    id: CapacitorStockPart
+    name: capacitor
+    description: A basic capacitor used in the construction of a variety of devices.
+    suffix: Rating 1
+    components:
+      - type: Sprite
+        state: capacitor
+      - type: Stack
+        stackType: Capacitor
+      - type: Tag
+        tags: [CapacitorStockPart]
+      - type: MachinePart
+        part: Capacitor
+        rating: 1
+      - type: ReverseEngineering # Nyano
+        recipes: [CapacitorStockPart]
+  - type: entity
+    parent: BaseStockPart
+    id: MicroManipulatorStockPart
+    name: manipulator
+    description: A basic manipulator used in the construction of a variety of devices.
+    suffix: Rating 1
+    components:
+      - type: Sprite
+        state: micro_mani
+      - type: Stack
+        stackType: MicroManipulator
+      - type: MachinePart
+        part: Manipulator
+        rating: 1
+      - type: ReverseEngineering # Nyano
+        recipes: [MicroManipulatorStockPart]
+  - type: entity
+    parent: BaseStockPart
+    id: MatterBinStockPart
+    name: matter bin
+    description: A basic matter bin used in the construction of a variety of devices.
+    suffix: Rating 1
+    components:
+      - type: Sprite
+        state: matter_bin
+      - type: Stack
+        stackType: MatterBin
+      - type: MachinePart
+        part: MatterBin
+        rating: 1
+      - type: ReverseEngineering # Nyano
+        recipes: [MatterBinStockPart]

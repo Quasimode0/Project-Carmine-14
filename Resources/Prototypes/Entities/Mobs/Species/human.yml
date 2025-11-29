@@ -1,53 +1,49 @@
-# Anything human specific (e.g. UI, input) goes under MobHuman
-- type: entity
-  parent: BaseMobSpeciesOrganic
-  id: BaseMobHuman
-  name: Urist McHands
-  abstract: true
-  components:
-  - type: Hunger
-    currentHunger: 150
-  - type: Thirst
-    startingThirst: 450
-  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
-  - type: Carriable # Carrying system from nyanotrasen.
-  - type: Butcherable
-    butcheringType: Spike
-    spawned:
-    - id: FoodMeatHuman
-      amount: 5
-  - type: HumanoidAppearance
-    species: Human
-    hideLayersOnEquip:
-    - Hair
-    - Snout
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
-  - type: LanguageKnowledge
-    speaks:
-    # - Sign # basic language needed, otherwise it gives u universal lang
-    - TauCetiBasic # CARMINE - TEMPORARY
-    understands:
-    # - Sign # basic language needed, otherwise it gives u universal lang
-    - TauCetiBasic # CARMINE - TEMPORARY
-  - type: FootPrints
-
-- type: entity
-  parent: BaseSpeciesDummy
-  id: MobHumanDummy
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Inventory
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Mobs/Species/Human/displacement.rsi
-            state: jumpsuit-female
+  - type: entity
+    parent: BaseMobSpeciesOrganic
+    id: BaseMobHuman
+    name: Urist McHands
+    abstract: true
+    components:
+      - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+        sprite: Mobs/Species/Human/parts.rsi
+        state: full
+      - type: Hunger
+        currentHunger: 150
+      - type: Thirst
+        startingThirst: 450
+      - type: Carriable # Carrying system from nyanotrasen.
+      - type: Butcherable
+        butcheringType: Spike
+        spawned:
+          - id: FoodMeatHuman
+            amount: 5
+      - type: HumanoidAppearance
+        species: Human
+        hideLayersOnEquip: [Hair, Snout]
+      - type: Inventory
+        femaleDisplacements:
+          jumpsuit:
+            sizeMaps:
+              32:
+                sprite: Mobs/Species/Human/displacement.rsi
+                state: jumpsuit-female
+      - type: LanguageKnowledge
+        speaks:
+    # - Sign  # basic language needed, otherwise it gives u universal lang
+          - TauCetiBasic # CARMINE - TEMPORARY
+        understands:
+    # - Sign  # basic language needed, otherwise it gives u universal lang
+          - TauCetiBasic # CARMINE - TEMPORARY
+      - type: FootPrints
+  - type: entity
+    parent: BaseSpeciesDummy
+    id: MobHumanDummy
+    categories: [HideSpawnMenu]
+    components:
+      - type: Inventory
+        femaleDisplacements:
+          jumpsuit:
+            sizeMaps:
+              32:
+                sprite: Mobs/Species/Human/displacement.rsi
+                state: jumpsuit-female

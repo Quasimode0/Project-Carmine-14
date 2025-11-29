@@ -1,7 +1,8 @@
-﻿- type: playerConnectionWhitelist
-  id: basicWhitelist # Basic whitelist using only the ManualWhitelist condition
-  conditions:
-    - !type:ConditionManualWhitelistMembership
-      action: Allow # Allow connection if matched
-    - !type:ConditionAlwaysMatch # Condition that always matches
-      action: Deny # Deny connection if matched
+  - type: playerConnectionWhitelist
+    id: basicWhitelist
+    conditions:
+      - !type:ConditionManualWhitelistMembership
+        action: Allow # Allow connection if matched
+                                 # Condition that always matches
+      - !type:ConditionAlwaysMatch
+        action: Deny # Deny connection if matched

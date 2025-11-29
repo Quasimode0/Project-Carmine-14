@@ -1,115 +1,105 @@
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtBartender
-  name: bartender's uniform
-  description: A nice and tidy uniform. Shame about the bar though.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtDetective
-  name: hard-worn suit
-  description: Someone who wears this means business.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtDetectiveGrey
-  name: noir suit
-  description: A hard-boiled private investigator's grey suit, complete with tie clip.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpskirtPrisoner
-  name: prisoner jumpskirt
-  description: Busted.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    layers:
-    - state: icon
-      color: "#ff8300"
-    - state: prisoner-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#ff8300"
-      - state: prisoner-inhand-left
-      right:
-      - state: inhand-right
-        color: "#ff8300"
-      - state: prisoner-inhand-right
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-        color: "#ff8300"
-      - state: prisoner-equipped-INNERCLOTHING
-  - type: SuitSensor
-    controlsLocked: true
-    randomMode: false
-    mode: SensorCords
-  - type: Tag
-    tags:
-    - ClothMade
-    - PrisonUniform
-    - WhitelistChameleon
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtOperative
-  name: operative jumpskirt
-  description: Uniform for elite syndicate operatives performing tactical operations in deep space.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtLawyerBlack
-  name: black lawyer suitskirt
-  description: A subtle black suitskirt worn by lawyers and gangsters.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpsuitMonasticRobeDark
-  name: dark monastic robe
-  description: It's a dark robe, often worn by religious folk.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_dark.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_dark.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpsuitMonasticRobeLight
-  name: light monastic robe
-  description: It's a light robe, often worn by religious folk.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_light.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_light.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtBartender
+    name: bartender's uniform
+    description: A nice and tidy uniform. Shame about the bar though.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/bartender.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtDetective
+    name: hard-worn suit
+    description: Someone who wears this means business.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtDetectiveGrey
+    name: noir suit
+    description: A hard-boiled private investigator's grey suit, complete with tie clip.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/detective_grey.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpskirtPrisoner
+    name: prisoner jumpskirt
+    description: Busted.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+        layers:
+          - state: icon
+            color: '#ff8300'
+          - state: prisoner-icon
+      - type: Item
+        inhandVisuals:
+          left:
+            - state: inhand-left
+              color: '#ff8300'
+            - state: prisoner-inhand-left
+          right:
+            - state: inhand-right
+              color: '#ff8300'
+            - state: prisoner-inhand-right
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+        clothingVisuals:
+          jumpsuit:
+            - state: equipped-INNERCLOTHING
+              color: '#ff8300'
+            - state: prisoner-equipped-INNERCLOTHING
+      - type: Tag
+        tags: [ClothMade, PrisonUniform, WhitelistChameleon]
+      - type: SuitSensor
+        controlsLocked: true
+        randomMode: false
+        mode: SensorCords
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtOperative
+    name: operative jumpskirt
+    description: Uniform for elite syndicate operatives performing tactical operations in deep space.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtLawyerBlack
+    name: black lawyer suitskirt
+    description: A subtle black suitskirt worn by lawyers and gangsters.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/lawyerblack.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpsuitMonasticRobeDark
+    name: dark monastic robe
+    description: It's a dark robe, often worn by religious folk.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_dark.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_dark.rsi
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpsuitMonasticRobeLight
+    name: light monastic robe
+    description: It's a light robe, often worn by religious folk.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_light.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/monastic_robe_light.rsi

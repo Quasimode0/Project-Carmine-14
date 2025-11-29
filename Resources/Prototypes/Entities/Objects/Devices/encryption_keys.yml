@@ -1,28 +1,25 @@
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: EncryptionKey
-  name: encryption key
-  description: A small cypher chip for headsets.
-  components:
-  - type: EncryptionKey
-  - type: Item
-    sprite: Objects/Devices/encryption_keys.rsi
-  - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyCommon
-  name: common encryption key
-  description: An encryption key used by anyone.
-  components:
-  - type: EncryptionKey
-    channels:
-    - Common
-    - Traffic
-    defaultChannel: Common
-  - type: Sprite
-    layers:
-    - state: crypt_gray
-    - state: common_label
+  - type: entity
+    parent: BaseItem
+    id: EncryptionKey
+    name: encryption key
+    description: A small cypher chip for headsets.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Devices/encryption_keys.rsi
+      - type: Item
+        sprite: Objects/Devices/encryption_keys.rsi
+      - type: EncryptionKey
+  - type: entity
+    parent: EncryptionKey
+    id: EncryptionKeyCommon
+    name: common encryption key
+    description: An encryption key used by anyone.
+    components:
+      - type: Sprite
+        layers:
+          - state: crypt_gray
+          - state: common_label
+      - type: EncryptionKey
+        channels: [Common, Traffic]
+        defaultChannel: Common

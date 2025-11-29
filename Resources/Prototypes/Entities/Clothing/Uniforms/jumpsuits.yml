@@ -1,136 +1,123 @@
-- type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitBartender
-  name: bartender's uniform
-  description: A nice and tidy uniform. Shame about the bar though.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitDetective
-  name: hard-worn suit
-  description: Someone who wears this means business.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
-
-- type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
-  id: ClothingUniformJumpsuitDetectiveGrey
-  name: noir suit
-  description: A hard-boiled private investigator's grey suit, complete with tie clip.
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/detective_grey.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/detective_grey.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitPrisoner
-  name: prisoner jumpsuit
-  description: Busted.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    layers:
-    - state: icon
-      color: "#ff8300"
-    - state: prisoner-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-        color: "#ff8300"
-      - state: prisoner-inhand-left
-      right:
-      - state: inhand-right
-        color: "#ff8300"
-      - state: prisoner-inhand-right
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-        color: "#ff8300"
-      - state: prisoner-equipped-INNERCLOTHING
-  - type: SuitSensor
-    controlsLocked: true
-    randomMode: false
-    mode: SensorCords
-  - type: Tag
-    tags:
-    - ClothMade
-    - PrisonUniform
-    - WhitelistChameleon
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitLawyerBlack
-  name: black lawyer suit
-  description: A subtle black suit worn by lawyers and gangsters.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSuitAmish
-  name: amish suit
-  description: It's a very Amish-looking suit.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/amish_suit.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/amish_suit.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSuitAristocratic
-  name: aristocratic suit
-  description: A dapper-looking suit with blue accents that make you feel like an aristocrat.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/aristocratic_suit.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/aristocratic_suit.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSuitAristocraticTuxedo
-  name: aristocratic tuxedo
-  description: You can almost smell the spesos this was sewn from.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/aristocratic_tuxedo.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/aristocratic_tuxedo.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitTurtleneckGrey
-  name: grey turtleneck
-  description: A warm looking sweater and a pair of dark blue slacks.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
-
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitSuitVictorianVest
-  name: victorian suit
-  description: A Victorian-style suit, fancy!
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
+  - type: entity
+    parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+    id: ClothingUniformJumpsuitBartender
+    name: bartender's uniform
+    description: A nice and tidy uniform. Shame about the bar though.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/bartender.rsi
+  - type: entity
+    parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+    id: ClothingUniformJumpsuitDetective
+    name: hard-worn suit
+    description: Someone who wears this means business.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
+  - type: entity
+    parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+    id: ClothingUniformJumpsuitDetectiveGrey
+    name: noir suit
+    description: A hard-boiled private investigator's grey suit, complete with tie clip.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/detective_grey.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/detective_grey.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitPrisoner
+    name: prisoner jumpsuit
+    description: Busted.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+        layers:
+          - state: icon
+            color: '#ff8300'
+          - state: prisoner-icon
+      - type: Item
+        inhandVisuals:
+          left:
+            - state: inhand-left
+              color: '#ff8300'
+            - state: prisoner-inhand-left
+          right:
+            - state: inhand-right
+              color: '#ff8300'
+            - state: prisoner-inhand-right
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/color.rsi
+        clothingVisuals:
+          jumpsuit:
+            - state: equipped-INNERCLOTHING
+              color: '#ff8300'
+            - state: prisoner-equipped-INNERCLOTHING
+      - type: Tag
+        tags: [ClothMade, PrisonUniform, WhitelistChameleon]
+      - type: SuitSensor
+        controlsLocked: true
+        randomMode: false
+        mode: SensorCords
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitLawyerBlack
+    name: black lawyer suit
+    description: A subtle black suit worn by lawyers and gangsters.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitSuitAmish
+    name: amish suit
+    description: It's a very Amish-looking suit.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/amish_suit.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/amish_suit.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitSuitAristocratic
+    name: aristocratic suit
+    description: A dapper-looking suit with blue accents that make you feel like an aristocrat.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/aristocratic_suit.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/aristocratic_suit.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitSuitAristocraticTuxedo
+    name: aristocratic tuxedo
+    description: You can almost smell the spesos this was sewn from.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/aristocratic_tuxedo.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/aristocratic_tuxedo.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitTurtleneckGrey
+    name: grey turtleneck
+    description: A warm looking sweater and a pair of dark blue slacks.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/turtleneck_grey.rsi
+  - type: entity
+    parent: ClothingUniformBase
+    id: ClothingUniformJumpsuitSuitVictorianVest
+    name: victorian suit
+    description: A Victorian-style suit, fancy!
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpsuit/victorian_vest.rsi
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpsuit/victorian_vest.rsi

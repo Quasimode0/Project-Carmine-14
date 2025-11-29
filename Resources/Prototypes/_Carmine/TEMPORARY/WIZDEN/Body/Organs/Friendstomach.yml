@@ -1,15 +1,15 @@
-﻿- type: entity
-  id: OrganFriendStomach
-  parent: OrganAnimalStomach
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Stomach
-  - type: SolutionContainerManager
-    solutions:
-      stomach:
-        maxVol: 100
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
+  - type: entity
+    parent: OrganAnimalStomach
+    id: OrganFriendStomach
+    categories: [HideSpawnMenu]
+    components:
+      - type: Stomach
+      - type: SolutionContainerManager
+        solutions:
+          stomach:
+            maxVol: 100
+          food:
+            maxVol: 50
+            reagents:
+              - ReagentId: UncookedAnimalProteins
+                Quantity: 5

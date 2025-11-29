@@ -1,117 +1,110 @@
-# Welding
-
-- type: entity
-  id: WeldingFuelTank
-  parent: [StorageTank, StructureWheeled]
-  name: fuel tank
-  description: A fuel tank. It's used to store high amounts of fuel.
-  suffix: Empty
-  components:
-  - type: StaticPrice
-    price: 750
-  - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
-    layers:
-      - state: fueltank-2
-      - state: fueltank-2-1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 3
-    fillBaseName: fueltank-2-
-  - type: ExaminableSolution
-    solution: tank
-  - type: ReagentTank
-    tankType: Fuel
-  - type: DamageOnToolInteract
-    tools: Welding
-    weldingDamage:
-      types:
-        Heat: 10
-  - type: PacifismDangerousAttack
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 120 # ~ 5 tile radius
-
-- type: entity
-  id: WeldingFuelTankFull
-  parent: WeldingFuelTank
-  suffix: Full
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 1500
-
-- type: entity
-  parent: StorageTank
-  id: WaterCooler
-  name: water cooler
-  description: Seems like a good place to stand and waste time. It has a stock of paper cups on the side.
-  components:
-  - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
-    layers:
-      - state: watercooler-2
-      - state: watercooler-2-1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 4
-    fillBaseName: watercooler-2-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-  - type: ContainerContainer
-    containers:
-      bin-container: !type:Container
-  - type: Bin
-    initialContents:
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    whitelist:
-      requireAll: true
-      components:
-      - FitsInDispenser
-      tags:
-      - Trash
-  - type: ExaminableSolution
-    solution: tank
-  - type: StaticPrice
-    price: 500
-
-- type: entity
-  id: GenericTank
-  parent: [StorageTank, StructureWheeled]
-  suffix: Empty
-  components:
-    - type: StaticPrice
-      price: 500
-    - type: Sprite
-      sprite: Structures/Storage/tanks.rsi
-      layers:
-        - state: generictank-1
-        - state: watertank-2-1
-          map: ["enum.SolutionContainerLayers.Fill"]
-          visible: false
-    - type: Appearance
-    - type: SolutionContainerVisuals
-      maxFillLevels: 5
-      fillBaseName: watertank-2-
-    - type: ExaminableSolution
-      solution: tank
+  - type: entity
+    parent: [StorageTank, StructureWheeled]
+    id: WeldingFuelTank
+    name: fuel tank
+    description: A fuel tank. It's used to store high amounts of fuel.
+    suffix: Empty
+    components:
+      - type: Sprite
+        sprite: Structures/Storage/tanks.rsi
+        layers:
+          - state: fueltank-2
+          - state: fueltank-2-1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 750
+      - type: Appearance
+      - type: Explosive
+        explosionType: Default
+        totalIntensity: 120 # ~ 5 tile radius
+      - type: SolutionContainerVisuals
+        maxFillLevels: 3
+        fillBaseName: fueltank-2-
+      - type: ExaminableSolution
+        solution: tank
+      - type: ReagentTank
+        tankType: Fuel
+      - type: DamageOnToolInteract
+        tools: Welding
+        weldingDamage:
+          types:
+            Heat: 10
+      - type: PacifismDangerousAttack
+  - type: entity
+    parent: WeldingFuelTank
+    id: WeldingFuelTankFull
+    suffix: Full
+    components:
+      - type: SolutionContainerManager
+        solutions:
+          tank:
+            reagents:
+              - ReagentId: WeldingFuel
+                Quantity: 1500
+  - type: entity
+    parent: StorageTank
+    id: WaterCooler
+    name: water cooler
+    description: Seems like a good place to stand and waste time. It has a stock of paper cups on the side.
+    components:
+      - type: Sprite
+        sprite: Structures/Storage/tanks.rsi
+        layers:
+          - state: watercooler-2
+          - state: watercooler-2-1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 500
+      - type: Appearance
+      - type: ContainerContainer
+        containers:
+          bin-container: !type:Container
+      - type: SolutionContainerVisuals
+        maxFillLevels: 4
+        fillBaseName: watercooler-2-
+      - type: SolutionContainerManager
+        solutions:
+          tank:
+            reagents:
+              - ReagentId: Water
+                Quantity: 500
+      - type: Bin
+        initialContents:
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+          - DrinkWaterCup
+        whitelist:
+          requireAll: true
+          components: [FitsInDispenser]
+          tags: [Trash]
+      - type: ExaminableSolution
+        solution: tank
+  - type: entity
+    parent: [StorageTank, StructureWheeled]
+    id: GenericTank
+    suffix: Empty
+    components:
+      - type: Sprite
+        sprite: Structures/Storage/tanks.rsi
+        layers:
+          - state: generictank-1
+          - state: watertank-2-1
+            map: [enum.SolutionContainerLayers.Fill]
+            visible: false
+      - type: StaticPrice
+        price: 500
+      - type: Appearance
+      - type: SolutionContainerVisuals
+        maxFillLevels: 5
+        fillBaseName: watertank-2-
+      - type: ExaminableSolution
+        solution: tank

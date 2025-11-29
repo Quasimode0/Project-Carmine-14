@@ -1,82 +1,73 @@
-- type: entity
-  name: bang severer
-  parent: BaseItem
-  id: MeleeDebugSever
-  description: sever yer parts a week from now
-  suffix: DEBUG
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 20000
-    clickPartDamageMultiplier: 10
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
-
-- type: entity
-  name: bang severer 100dmg
-  parent: MeleeDebugSever
-  id: MeleeDebugSever100
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 100
-
-- type: entity
-  name: bang severer 200dmg
-  parent: MeleeDebugSever
-  id: MeleeDebugSever200
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 200
-
-- type: entity
-  name: bang burner
-  parent: BaseItem
-  id: MeleeDebugBurner
-  description: burn yer parts
-  suffix: DEBUG
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
-  - type: MeleeWeapon
-    damage:
-      types:
-        Heat: 20000
-    clickPartDamageMultiplier: 10
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
-
-- type: entity
-  name: bang burner 200dmg
-  parent: MeleeDebugBurner
-  id: MeleeDebugBurner200
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Heat: 200
+  - type: entity
+    parent: BaseItem
+    id: MeleeDebugSever
+    name: bang severer
+    description: sever yer parts a week from now
+    suffix: DEBUG
+    components:
+      - type: Sprite
+        sprite: Objects/Weapons/Melee/debug.rsi
+        state: icon
+      - type: Item
+        size: Tiny
+        sprite: Objects/Weapons/Melee/debug.rsi
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Slash: 20000
+        clickPartDamageMultiplier: 10
+  - type: entity
+    parent: MeleeDebugSever
+    id: MeleeDebugSever100
+    name: bang severer 100dmg
+    components:
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Slash: 100
+  - type: entity
+    parent: MeleeDebugSever
+    id: MeleeDebugSever200
+    name: bang severer 200dmg
+    components:
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Slash: 200
+  - type: entity
+    parent: BaseItem
+    id: MeleeDebugBurner
+    name: bang burner
+    description: burn yer parts
+    suffix: DEBUG
+    components:
+      - type: Sprite
+        sprite: Objects/Weapons/Melee/debug.rsi
+        state: icon
+      - type: Item
+        size: Tiny
+        sprite: Objects/Weapons/Melee/debug.rsi
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Heat: 20000
+        clickPartDamageMultiplier: 10
+  - type: entity
+    parent: MeleeDebugBurner
+    id: MeleeDebugBurner200
+    name: bang burner 200dmg
+    components:
+      - type: Tag
+        tags: [Debug]
+      - type: MeleeWeapon
+        damage:
+          types:
+            Heat: 200

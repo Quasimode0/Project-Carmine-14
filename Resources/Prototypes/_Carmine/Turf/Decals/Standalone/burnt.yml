@@ -1,27 +1,24 @@
-- type: decal
-  id: burnt1
-  parent: Misc
-  sprite:
-    sprite: Decals/burnt.rsi
-    state: burnt1
-
-- type: decal
-  id: burnt2
-  parent: Misc
-  sprite:
-    sprite: Decals/burnt.rsi
-    state: burnt2
-
-- type: decal
-  id: burnt3
-  parent: Misc
-  sprite:
-    sprite: Decals/burnt.rsi
-    state: burnt3
-
-- type: decal
-  id: burnt4
-  parent: Misc
-  sprite:
-    sprite: Decals/burnt.rsi
-    state: burnt4
+  - type: decal
+    parent: Misc
+    id: burnt1
+    sprite:
+      sprite: Decals/burnt.rsi
+      state: burnt1
+  - type: decal
+    parent: Misc
+    id: burnt2
+    sprite:
+      sprite: Decals/burnt.rsi
+      state: burnt2
+  - type: decal
+    parent: Misc
+    id: burnt3
+    sprite:
+      sprite: Decals/burnt.rsi
+      state: burnt3
+  - type: decal
+    parent: Misc
+    id: burnt4
+    sprite:
+      sprite: Decals/burnt.rsi
+      state: burnt4

@@ -1,5 +1,3 @@
-﻿- type: soundCollection
-  id: TrayHit
-  files:
-  - /Audio/Items/trayhit1.ogg
-  - /Audio/Items/trayhit2.ogg
+  - type: soundCollection
+    id: TrayHit
+    files: [/Audio/Items/trayhit1.ogg, /Audio/Items/trayhit2.ogg]

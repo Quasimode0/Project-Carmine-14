@@ -1,65 +1,59 @@
-# Base
-
-- type: entity
-  id: SpawnPointJobBase
-  parent: MarkerBase
-  abstract: true
-  suffix: Job Spawn
-  components:
-  - type: SpawnPoint
-    spawn_type: Job
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-
-- type: entity
-  name: observer spawn point
-  id: SpawnPointObserver
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-      - state: green
-      - sprite: Mobs/Ghosts/ghost_human.rsi
-        state: icon
-    state: observer
-  - type: SpawnPoint
-    spawn_type: Observer
-
-- type: entity
-  name: latejoin spawn point
-  id: SpawnPointLatejoin
-  parent: SpawnPointJobBase
-  components:
-  - type: Sprite
-    state: green
-  - type: SpawnPoint
-    spawn_type: LateJoin
+  - type: entity
+    parent: MarkerBase
+    id: SpawnPointJobBase
+    suffix: Job Spawn
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Markers/jobs.rsi
+      - type: SpawnPoint
+        spawn_type: Job
+  - type: entity
+    parent: MarkerBase
+    id: SpawnPointObserver
+    name: observer spawn point
+    components:
+      - type: Sprite
+        sprite: Markers/jobs.rsi
+        layers:
+          - state: green
+          - sprite: Mobs/Ghosts/ghost_human.rsi
+            state: icon
+        state: observer
+      - type: SpawnPoint
+        spawn_type: Observer
+  - type: entity
+    parent: SpawnPointJobBase
+    id: SpawnPointLatejoin
+    name: latejoin spawn point
+    components:
+      - type: Sprite
+        state: green
+      - type: SpawnPoint
+        spawn_type: LateJoin
 
 # Civilian
-
-- type: entity
-  id: SpawnPointPassenger
-  parent: SpawnPointJobBase
-  name: passenger
-  components:
-  - type: SpawnPoint
-    job_id: Passenger
-  - type: Sprite
-    layers:
-      - state: green
-      - state: passenger
+  - type: entity
+    parent: SpawnPointJobBase
+    id: SpawnPointPassenger
+    name: passenger
+    components:
+      - type: Sprite
+        layers:
+          - state: green
+          - state: passenger
 
 # Command
-
-- type: entity
-  id: SpawnPointCaptain
-  parent: SpawnPointJobBase
-  name: captain
-  components:
-  - type: SpawnPoint
-    job_id: Captain
-  - type: Sprite
-    layers:
-      - state: green
-      - state: captain
+      - type: SpawnPoint
+        job_id: Passenger
+  - type: entity
+    parent: SpawnPointJobBase
+    id: SpawnPointCaptain
+    name: captain
+    components:
+      - type: Sprite
+        layers:
+          - state: green
+          - state: captain
+      - type: SpawnPoint
+        job_id: Captain

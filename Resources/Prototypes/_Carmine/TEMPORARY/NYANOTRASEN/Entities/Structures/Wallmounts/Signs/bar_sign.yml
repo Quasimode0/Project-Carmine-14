@@ -1,19 +1,18 @@
-﻿- type: entity
-  parent: BaseBarSign
-  id: BarSignWhiskeyEcho
-  categories: [ HideSpawnMenu ]
-  name: Whiskey Echoes
-  description: Wew lad! Sit down and have a drink! No matter your affiliation, the slogan here is 'Death to sobriety!'
-  components:
-  - type: BarSign
-    current: WhiskeyEcho
-
-- type: entity
-  parent: BaseBarSign
-  id: BarSignKlubSkub
-  categories: [ HideSpawnMenu ]
-  name: Klub Skub
-  description: Skub!
-  components:
-  - type: BarSign
-    current: KlubSkub
+  - type: entity
+    parent: BaseBarSign
+    id: BarSignWhiskeyEcho
+    name: Whiskey Echoes
+    description: Wew lad! Sit down and have a drink! No matter your affiliation, the slogan here is 'Death to sobriety!'
+    categories: [HideSpawnMenu]
+    components:
+      - type: BarSign
+        current: WhiskeyEcho
+  - type: entity
+    parent: BaseBarSign
+    id: BarSignKlubSkub
+    name: Klub Skub
+    description: Skub!
+    categories: [HideSpawnMenu]
+    components:
+      - type: BarSign
+        current: KlubSkub

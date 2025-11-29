@@ -1,17 +1,11 @@
-# GAME PRESETS ARE WHAT YOU VOTE ON AS A GAMEMODE.
-# They do NOT CONTROL what spawns in by themselves. this is handled by the rule that it's pointing to in the rules: dictionary
-# in hullrotGamemodes.yml you can find "Adventure" "VladzenaJackal", etc.
-
-- type: gamePreset
-  id: Adventure #FREEPLAY, DO NOT REMOVE
-  alias:
-  - adventure
-  name: Freeplay
-  showInVote: true
-  description: The last days of Taypan. Lasts 2-4 hours.
-  rules:
-  - Adventure
-
+  - type: gamePreset
+    id: Adventure
+    name: Freeplay
+    description: The last days of Taypan. Lasts 2-4 hours.
+    alias: [adventure]
+    showInVote: true
+    rules:
+      - Adventure
 
 # GAMERULES ARE WAHT DECIDES WHAT SPAWNS IN, BY EVERYTHING IN THE ADVENTURERULE COMPONENT
 #
@@ -24,18 +18,16 @@
 # IFFColor changes what color the IFF in the shuttle and map screen will have. Use colors from the Color type, like White, Aqua, Blue, etc.
 # IFFFaction sets the faction of the object. to be honest i dont know if this does anything.
 # hideIFF is a boolean that controls if the object is visible from the map screen or not. by default it is set to false. use this for derelicts or secrets
-
-
-- type: entity
-  id: Adventure #FREEPLAY, DO NOT REMOVE
-  parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: AdventureRule
-    gameMapsByID:
-      TestMapCarmine:
-        gameMapID: TestMapCarmine
-        posX: 0
-        posY: 0
-        IFFColor: Orange
-        IFFFaction: NCWL
+  - type: entity
+    parent: BaseGameRule
+    id: Adventure
+    categories: [HideSpawnMenu]
+    components:
+      - type: AdventureRule
+        gameMapsByID:
+          TestMapCarmine:
+            gameMapID: TestMapCarmine
+            posX: 0
+            posY: 0
+            IFFColor: Orange
+            IFFFaction: NCWL

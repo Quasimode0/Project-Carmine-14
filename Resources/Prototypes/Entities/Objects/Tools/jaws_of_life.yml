@@ -1,79 +1,73 @@
-- type: entity
-  name: jaws of life
-  parent: BaseItem
-  id: JawsOfLife
-  description: A set of jaws of life, compressed through the magic of science.
-  components:
-  - type: Tag
-    tags:
-    - JawsOfLife
-  - type: Sprite
-    sprite: Objects/Tools/jaws_of_life.rsi
-    state: jaws_pry
-  - type: Item
-    size: Normal
-  - type: Clothing
-    sprite: Objects/Tools/jaws_of_life.rsi
-    quickEquip: false
-    slots:
-      - Belt
-  - type: ToolTileCompatible
-  - type: Tool
-    qualities:
-      - Prying
-    useSound: /Audio/Items/jaws_pry.ogg
-  - type: Prying
-    pryPowered: true
-    speedModifier: 3
-    useSound: /Audio/Items/jaws_pry.ogg
-  - type: ToolForcePowered
-  - type: MultipleTool
-    statusShowBehavior: true
-    entries:
-      - behavior: Prying
-        sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
-          state: jaws_pry
+  - type: entity
+    parent: BaseItem
+    id: JawsOfLife
+    name: jaws of life
+    description: A set of jaws of life, compressed through the magic of science.
+    components:
+      - type: Sprite
+        sprite: Objects/Tools/jaws_of_life.rsi
+        state: jaws_pry
+      - type: Item
+        size: Normal
+      - type: Clothing
+        sprite: Objects/Tools/jaws_of_life.rsi
+        quickEquip: false
+        slots: [Belt]
+      - type: Tag
+        tags: [JawsOfLife]
+      - type: Fixtures
+        fixtures:
+          fix1:
+            shape: !type:PhysShapeAabb
+              bounds: -0.25,-0.25,0.25,0.25
+            density: 155
+            mask: [ItemMask]
+            restitution: 0.3
+            friction: 0.2
+      - type: MeleeWeapon
+        wideAnimationRotation: 90
+        attackRate: 1
+        range: 1.65
+        damage:
+          types:
+            Blunt: 10
+            Slash: 8
+        bluntStaminaDamageFactor: 2.0
+        heavyRateModifier: 1.75
+        heavyDamageBaseModifier: 1.5
+        heavyStaminaCost: 2.5
+        maxTargets: 1
+        angle: 20
+        soundHit:
+          collection: MetalThud
+      - type: DamageOtherOnHit
+        staminaCost: 7
+      - type: ToolTileCompatible
+      - type: Tool
+        qualities: [Prying]
         useSound: /Audio/Items/jaws_pry.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
-      - behavior: Cutting
-        sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
-          state: jaws_cutter
-        useSound: /Audio/Items/jaws_cut.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
-  - type: MeleeWeapon
-    wideAnimationRotation: 90
-    attackRate: 1
-    range: 1.65
-    damage:
-      types:
-        Blunt: 10
-        Slash: 8
-    bluntStaminaDamageFactor: 2.0
-    heavyRateModifier: 1.75
-    heavyDamageBaseModifier: 1.5
-    heavyStaminaCost: 2.5
-    maxTargets: 1
-    angle: 20
-    soundHit:
-      collection: MetalThud
-  - type: DamageOtherOnHit
-    staminaCost: 7
-  - type: ThrowingAngle
-    angle: 90
-  - type: ReverseEngineering # Delta
-    difficulty: 3
-    recipes:
-      - JawsOfLife
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.25"
-        density: 155
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
+      - type: Prying
+        pryPowered: true
+        speedModifier: 3
+        useSound: /Audio/Items/jaws_pry.ogg
+      - type: ToolForcePowered
+      - type: MultipleTool
+        statusShowBehavior: true
+        entries:
+          - behavior: Prying
+            sprite:
+              sprite: Objects/Tools/jaws_of_life.rsi
+              state: jaws_pry
+            useSound: /Audio/Items/jaws_pry.ogg
+            changeSound: /Audio/Items/change_jaws.ogg
+          - behavior: Cutting
+            sprite:
+              sprite: Objects/Tools/jaws_of_life.rsi
+              state: jaws_cutter
+            useSound: /Audio/Items/jaws_cut.ogg
+            changeSound: /Audio/Items/change_jaws.ogg
+      - type: ThrowingAngle
+        angle: 90
+      - type: ReverseEngineering # Delta
+        difficulty: 3
+        recipes: [JawsOfLife]

@@ -1,193 +1,180 @@
-- type: entity
-  abstract: true
-  parent: [ BaseItem] #PDA's have uplinks so they have to inherit the data.
-  id: BasePDA
-  name: PDA
-  description: Personal Data Assistant.
-  components:
-  - type: Appearance
-  - type: Sprite
-    sprite: Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
-  - type: Icon
-    sprite: Objects/Devices/pda.rsi
-    state: pda
-  - type: Pda
-    shipDeedSlot:
-      priority: -4
-      whitelist:
-        tags:
-          - ShipDeed
-    passportSlot:
-      priority: -3
-      whitelist:
-        components:
-          - Passport
-    paiSlot:
-      priority: -2
-      whitelist:
-        components:
-          - PAI
-    penSlot:
-      startingItem: Pen
-      priority: -1
-      whitelist:
-        tags:
-          - Write
-    idSlot:
-      name: access-id-card-component-default
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - IdCard
-  - type: Item
-    size: Small
-  - type: ContainerContainer
-    containers:
-      PDA-id: !type:ContainerSlot {}
-      PDA-pen: !type:ContainerSlot {}
-      PDA-pai: !type:ContainerSlot {}
-      PDA-passport: !type:ContainerSlot {}
-      PDA-shipdeed: !type:ContainerSlot {}
-      Cartridge-Slot: !type:ContainerSlot {}
-      program-container: !type:Container
-  - type: ItemSlots
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - idcard
-    - Belt
-  - type: UnpoweredFlashlight
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    softness: 5
-    autoRot: true
-  - type: Ringer
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: PDA
-    prefix: device-address-prefix-console
-    savableAddress: false
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - NanoChatCartridge # DeltaV
-    cartridgeSlot:
-      priority: -1
-      name: device-pda-slot-component-slot-name-cartridge
-      ejectSound: /Audio/Machines/id_swipe.ogg
-      insertSound: /Audio/Machines/id_insert.ogg
-      whitelist:
-        components:
-          - Cartridge
-  - type: ActivatableUI
-    key: enum.PdaUiKey.Key
-    singleUser: true
-  - type: UserInterface
-    interfaces:
-      enum.PdaUiKey.Key:
-        type: PdaBoundUserInterface
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-      enum.RingerUiKey.Key:
-        type: RingerBoundUserInterface
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-      enum.HealthAnalyzerUiKey.Key:
-        type: HealthAnalyzerBoundUserInterface
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-  - type: Input
-    context: "human"
-  - type: LanguageSpeaker
-  - type: LanguageKnowledge
-    speaks: [TauCetiBasic, RobotTalk]
-    understands: [TauCetiBasic, RobotTalk]
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 4
-  - type: SentienceTarget # sentient PDA = pAI lite
-    flavorKind: station-event-random-sentience-flavor-mechanical
-    weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
-  - type: BlockMovement
-    blockInteraction: false # lets the PDA toggle its own flashlight
-  - type: TypingIndicator
-    proto: robot
-  - type: Speech
-    speechVerb: Robotic
-
-- type: entity
-  parent: BasePDA
-  id: PassengerPDA
-  name: passenger PDA
-  description: Why isn't it gray?
-  components:
-  - type: Pda
-    id: PassengerIDCard
-    state: pda
-  - type: PdaBorderColor
-    borderColor: "#717059"
-
-- type: entity
-  parent: BasePDA
-  id: CaptainPDA
-  name: captain PDA
-  description: Surprisingly no different from your PDA... Wait, it's a fair bit heavy to hold.
-  components:
-  - type: Pda
-    id: CaptainIDCard
-    state: pda-captain
-    penSlot:
-      startingItem: Pen
-      priority: -1
-      whitelist:
-        tags:
-        - Write
-  - type: PdaBorderColor
-    borderColor: "#7C5D00"
-  - type: Icon
-    state: pda-captain
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 8
-    staminaCost: 5
-    soundHit:
-      collection: MetalThud
-
-- type: entity
-  parent: CaptainPDA
-  id: AdminPDA
-  name: Admin PDA
-  description: If you are not an admin please return this PDA to the nearest admin.
-  components:
-  - type: Pda
-    id: PassengerIDCard
-  - type: HealthAnalyzer
-    scanDelay: 0
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    notificationsEnabled: false
-    diskSpace: 10 # DeltaV
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NanoChatCartridge # DeltaV
+  - type: entity
+    parent: [BaseItem] # PDA's have uplinks so they have to inherit the data.
+    id: BasePDA
+    name: PDA
+    description: Personal Data Assistant.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Devices/pda.rsi
+        layers:
+          - map: [enum.PdaVisualLayers.Base]
+          - state: light_overlay
+            map: [enum.PdaVisualLayers.Flashlight]
+            shader: unshaded
+            visible: false
+          - state: id_overlay
+            map: [enum.PdaVisualLayers.IdLight]
+            shader: unshaded
+            visible: false
+      - type: Icon
+        sprite: Objects/Devices/pda.rsi
+        state: pda
+      - type: Item
+        size: Small
+      - type: Appearance
+      - type: Clothing
+        quickEquip: false
+        slots: [idcard, Belt]
+      - type: PointLight
+        enabled: false
+        radius: 1.5
+        softness: 5
+        autoRot: true
+      - type: Tag
+        tags: [DoorBumpOpener]
+      - type: UserInterface
+        interfaces:
+          enum.PdaUiKey.Key:
+            type: PdaBoundUserInterface
+          enum.StoreUiKey.Key:
+            type: StoreBoundUserInterface
+          enum.RingerUiKey.Key:
+            type: RingerBoundUserInterface
+          enum.InstrumentUiKey.Key:
+            type: InstrumentBoundUserInterface
+          enum.HealthAnalyzerUiKey.Key:
+            type: HealthAnalyzerBoundUserInterface
+      - type: ContainerContainer
+        containers:
+          PDA-id: !type:ContainerSlot {}
+          PDA-pen: !type:ContainerSlot {}
+          PDA-pai: !type:ContainerSlot {}
+          PDA-passport: !type:ContainerSlot {}
+          PDA-shipdeed: !type:ContainerSlot {}
+          Cartridge-Slot: !type:ContainerSlot {}
+          program-container: !type:Container
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Blunt: 4
+      - type: Pda
+        shipDeedSlot:
+          priority: -4
+          whitelist:
+            tags: [ShipDeed]
+        passportSlot:
+          priority: -3
+          whitelist:
+            components: [Passport]
+        paiSlot:
+          priority: -2
+          whitelist:
+            components: [PAI]
+        penSlot:
+          startingItem: Pen
+          priority: -1
+          whitelist:
+            tags: [Write]
+        idSlot:
+          name: access-id-card-component-default
+          ejectSound: /Audio/Machines/id_swipe.ogg
+          insertSound: /Audio/Machines/id_insert.ogg
+          whitelist:
+            components: [IdCard]
+      - type: ItemSlots
+      - type: UnpoweredFlashlight
+      - type: Ringer
+      - type: DeviceNetwork
+        deviceNetId: Wireless
+        receiveFrequencyId: PDA
+        prefix: device-address-prefix-console
+        savableAddress: false
+      - type: WirelessNetworkConnection
+        range: 500
+      - type: CartridgeLoader
+        uiKey: enum.PdaUiKey.Key
+        preinstalled:
+          - CrewManifestCartridge
+          - NotekeeperCartridge
+          - NewsReaderCartridge
+          - NanoChatCartridge # DeltaV
+        cartridgeSlot:
+          priority: -1
+          name: device-pda-slot-component-slot-name-cartridge
+          ejectSound: /Audio/Machines/id_swipe.ogg
+          insertSound: /Audio/Machines/id_insert.ogg
+          whitelist:
+            components: [Cartridge]
+      - type: ActivatableUI
+        key: enum.PdaUiKey.Key
+        singleUser: true
+      - type: Input
+        context: human
+      - type: LanguageSpeaker
+      - type: LanguageKnowledge
+        speaks: [TauCetiBasic, RobotTalk]
+        understands: [TauCetiBasic, RobotTalk]
+      - type: SentienceTarget # sentient PDA = pAI lite
+        flavorKind: station-event-random-sentience-flavor-mechanical
+        weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
+      - type: BlockMovement
+        blockInteraction: false # lets the PDA toggle its own flashlight
+      - type: TypingIndicator
+        proto: robot
+      - type: Speech
+        speechVerb: Robotic
+  - type: entity
+    parent: BasePDA
+    id: PassengerPDA
+    name: passenger PDA
+    description: Why isn't it gray?
+    components:
+      - type: Pda
+        id: PassengerIDCard
+        state: pda
+      - type: PdaBorderColor
+        borderColor: '#717059'
+  - type: entity
+    parent: BasePDA
+    id: CaptainPDA
+    name: captain PDA
+    description: Surprisingly no different from your PDA... Wait, it's a fair bit heavy to hold.
+    components:
+      - type: Icon
+        state: pda-captain
+      - type: DamageOtherOnHit
+        damage:
+          types:
+            Blunt: 8
+        staminaCost: 5
+        soundHit:
+          collection: MetalThud
+      - type: Pda
+        id: CaptainIDCard
+        state: pda-captain
+        penSlot:
+          startingItem: Pen
+          priority: -1
+          whitelist:
+            tags: [Write]
+      - type: PdaBorderColor
+        borderColor: '#7C5D00'
+  - type: entity
+    parent: CaptainPDA
+    id: AdminPDA
+    name: Admin PDA
+    description: If you are not an admin please return this PDA to the nearest admin.
+    components:
+      - type: Pda
+        id: PassengerIDCard
+      - type: HealthAnalyzer
+        scanDelay: 0
+      - type: CartridgeLoader
+        uiKey: enum.PdaUiKey.Key
+        notificationsEnabled: false
+        diskSpace: 10 # DeltaV
+        preinstalled:
+          - CrewManifestCartridge
+          - NotekeeperCartridge
+          - NanoChatCartridge # DeltaV

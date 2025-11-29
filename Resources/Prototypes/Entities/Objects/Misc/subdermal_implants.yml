@@ -1,224 +1,200 @@
-- type: entity
-  id: BaseSubdermalImplant
-  name: implant
-  description: A microscopic chip that's injected under the skin.
-  abstract: true
-  components:
-  - type: SubdermalImplant
-  - type: Tag
-    tags:
-    - SubdermalImplant
-    - HideContextMenu
+  - type: entity
+    id: BaseSubdermalImplant
+    name: implant
+    description: A microscopic chip that's injected under the skin.
+    abstract: true
+    components:
+      - type: Tag
+        tags:
+          - SubdermalImplant
+          - HideContextMenu
 
-#Fun implants
+# Fun implants
+      - type: SubdermalImplant
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: LightImplant
+    name: light implant
+    description: This implant emits light from the user's skin on activation.
+    categories: [HideSpawnMenu]
+    components:
+      - type: PointLight
+        enabled: false
+        radius: 2.5
+        softness: 5
+        mask: /Textures/Effects/LightMasks/cone.png
+        autoRot: true
+      - type: Tag
+        tags: [SubdermalImplant, HideContextMenu, Flashlight]
+      - type: SubdermalImplant
+        implantAction: ActionToggleLight
+      - type: UnpoweredFlashlight
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: BikeHornImplant
+    name: bike horn implant
+    description: This implant lets the user honk anywhere at any time.
+    categories: [HideSpawnMenu]
+    components:
+      - type: Tag
+        tags:
+          - BikeHorn
 
-- type: entity
-  parent: BaseSubdermalImplant
-  id: LightImplant
-  name: light implant
-  description: This implant emits light from the user's skin on activation.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionToggleLight
-    - type: PointLight
-      enabled: false
-      radius: 2.5
-      softness: 5
-      mask: /Textures/Effects/LightMasks/cone.png
-      autoRot: true
-    - type: Tag
-      tags:
-        - SubdermalImplant
-        - HideContextMenu
-        - Flashlight
-    - type: UnpoweredFlashlight
+# Security implants
+      - type: SubdermalImplant
+        implantAction: ActionActivateHonkImplant
+      - type: TriggerImplantAction
+      - type: EmitSoundOnTrigger
+        sound:
+          collection: BikeHorn
+          params:
+            variation: 0.125
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: TrackingImplant
+    name: tracking implant
+    description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+        whitelist:
+          components: [MobState]
+      - type: SuitSensor
+        randomMode: false
+        controlsLocked: true
+        mode: SensorCords
+        activationContainer: implant
+      - type: DeviceNetwork
+        deviceNetId: Wireless
+        transmitFrequencyId: SuitSensor
+      - type: StationLimitedNetwork
+      - type: WirelessNetworkConnection
+        range: 500
+      - type: TriggerOnMobstateChange
+        mobState: [Critical, Dead]
+      - type: Rattle
+        radioChannel: Security
 
-- type: entity
-  parent: BaseSubdermalImplant
-  id: BikeHornImplant
-  name: bike horn implant
-  description: This implant lets the user honk anywhere at any time.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionActivateHonkImplant
-    - type: TriggerImplantAction
-    - type: EmitSoundOnTrigger
-      sound:
-        collection: BikeHorn
-        params:
-          variation: 0.125
-    - type: Tag
-      tags:
-      - BikeHorn
+# Traitor implants
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: StorageImplant
+    name: storage implant
+    description: This implant grants hidden storage within a person's body using bluespace technology.
+    categories: [HideSpawnMenu]
+    components:
+      - type: UserInterface
+        interfaces:
+          enum.StorageUiKey.Key:
+            type: StorageBoundUserInterface
+      - type: ContainerContainer
+        containers:
+          storagebase: !type:Container
+            ents: []
+      - type: Storage
+        grid: ['0,0,2,2']
+      - type: SubdermalImplant
+        implantAction: ActionOpenStorageImplant
+        whitelist:
+          components:
+            - Hands # no use giving a mouse a storage implant, but a monkey is another story...
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: FreedomImplant
+    name: freedom implant
+    description: This implant lets the user break out of hand restraints up to three times before ceasing to function anymore.
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+        implantAction: ActionActivateFreedomImplant
+        whitelist:
+          components:
+            - Cuffable # useless if you cant be cuffed
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: EmpImplant
+    name: EMP implant
+    description: This implant creates an electromagnetic pulse when activated.
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+        implantAction: ActionActivateEmpImplant
+      - type: TriggerImplantAction
+      - type: EmpOnTrigger
+        range: 1.75
+        energyConsumption: 50000
+        disableDuration: 10
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: DnaScramblerImplant
+    name: DNA scrambler implant
+    description: This implant lets the user randomly change their appearance and name once.
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+        implantAction: ActionActivateDnaScramblerImplant
+        whitelist:
+          components:
+            - HumanoidAppearance # syndies cant turn hamlet into a human
 
-#Security implants
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: TrackingImplant
-  name: tracking implant
-  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      whitelist:
-        components:
-        - MobState
-    - type: SuitSensor
-      randomMode: false
-      controlsLocked: true
-      mode: SensorCords
-      activationContainer: "implant"
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-      transmitFrequencyId: SuitSensor
-    - type: StationLimitedNetwork
-    - type: WirelessNetworkConnection
-      range: 500
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
-      radioChannel: "Security"
-
-#Traitor implants
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: StorageImplant
-  name: storage implant
-  description: This implant grants hidden storage within a person's body using bluespace technology.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionOpenStorageImplant
-      whitelist:
-        components:
-        - Hands # no use giving a mouse a storage implant, but a monkey is another story...
-    - type: Storage
-      grid:
-      - 0,0,2,2
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          ents: [ ]
-    - type: UserInterface
-      interfaces:
-        enum.StorageUiKey.Key:
-          type: StorageBoundUserInterface
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: FreedomImplant
-  name: freedom implant
-  description: This implant lets the user break out of hand restraints up to three times before ceasing to function anymore.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionActivateFreedomImplant
-      whitelist:
-        components:
-        - Cuffable # useless if you cant be cuffed
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: EmpImplant
-  name: EMP implant
-  description: This implant creates an electromagnetic pulse when activated.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionActivateEmpImplant
-    - type: TriggerImplantAction
-    - type: EmpOnTrigger
-      range: 1.75
-      energyConsumption: 50000
-      disableDuration: 10
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: DnaScramblerImplant
-  name: DNA scrambler implant
-  description: This implant lets the user randomly change their appearance and name once.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      implantAction: ActionActivateDnaScramblerImplant
-      whitelist:
-        components:
-        - HumanoidAppearance # syndies cant turn hamlet into a human
-
-#Nuclear Operative/Special Exclusive implants
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: DeathAcidifierImplant
-  name: death-acidifier implant
-  description: This implant melts the user and their equipment upon death.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-    permanent: true
-    implantAction: ActionActivateDeathAcidifier
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Dead
-  - type: TriggerImplantAction
-  - type: GibOnTrigger
-    deleteItems: true
-  - type: SpawnOnTrigger
-    proto: Acidifier
-  - type: Tag
-    tags:
-    - SubdermalImplant
-    - HideContextMenu
-    - DeathAcidifier
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: DeathRattleImplant
-  name: death rattle implant
-  description: This implant will inform the Syndicate radio channel should the user fall into critical condition or die.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: SubdermalImplant
-      permanent: true
-      whitelist:
-        components:
-        - MobState
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
+# Nuclear Operative/Special Exclusive implants
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: DeathAcidifierImplant
+    name: death-acidifier implant
+    description: This implant melts the user and their equipment upon death.
+    categories: [HideSpawnMenu]
+    components:
+      - type: Tag
+        tags: [SubdermalImplant, HideContextMenu, DeathAcidifier]
+      - type: SubdermalImplant
+        permanent: true
+        implantAction: ActionActivateDeathAcidifier
+      - type: TriggerOnMobstateChange
+        mobState: [Dead]
+      - type: TriggerImplantAction
+      - type: GibOnTrigger
+        deleteItems: true
+      - type: SpawnOnTrigger
+        proto: Acidifier
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: DeathRattleImplant
+    name: death rattle implant
+    description: This implant will inform the Syndicate radio channel should the user fall into critical condition or die.
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+        permanent: true
+        whitelist:
+          components: [MobState]
+      - type: TriggerOnMobstateChange
+        mobState: [Critical, Dead]
+      - type: Rattle
 
 # Sec and Command implants
-
-- type: entity
-  parent: BaseSubdermalImplant
-  id: MindShieldImplant
-  name: mind-shield implant
-  description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
-  categories: [ HideSpawnMenu ]
-  components:
-   - type: SubdermalImplant
-     permanent: true
-   - type: Tag
-     tags:
-       - MindShield
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: MindShieldImplant
+    name: mind-shield implant
+    description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
+    categories: [HideSpawnMenu]
+    components:
+      - type: Tag
+        tags:
+          - MindShield
 
 # Example component adding implant
-- type: entity
-  parent: BaseSubdermalImplant
-  id: ComponentImplant
-  name: Add A component DEBUG
-  description: Example component adding implant
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SubdermalImplant
-  - type: AddComponentsImplant
-    componentsToAdd:
-    - type: Dispellable
+      - type: SubdermalImplant
+        permanent: true
+  - type: entity
+    parent: BaseSubdermalImplant
+    id: ComponentImplant
+    name: Add A component DEBUG
+    description: Example component adding implant
+    categories: [HideSpawnMenu]
+    components:
+      - type: SubdermalImplant
+      - type: AddComponentsImplant
+        componentsToAdd:
+          - type: Dispellable

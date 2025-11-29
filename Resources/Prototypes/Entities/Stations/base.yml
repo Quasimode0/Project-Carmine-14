@@ -1,38 +1,33 @@
-- type: entity
-  id: BaseStation
-  abstract: true
-  components:
-    - type: StationData
-
-- type: entity
-  id: BaseRandomStation
-  abstract: true
-  components:
-    - type: StationRandomTransform
-
-- type: entity
-  id: BaseStationJobsSpawning
-  abstract: true
-  components:
-    - type: StationJobs
-      availableJobs: {}
-    - type: StationSpawning
-
-- type: entity
-  id: BaseStationRecords
-  abstract: true
-  components:
-    - type: StationRecords
-
-- type: entity
-  id: BaseStationAlertLevels
-  abstract: true
-  components:
-    - type: AlertLevel
-      alertLevelPrototype: stationAlerts
-
-- type: entity
-  id: BaseStationAllEventsEligible
-  abstract: true
-  components:
-    - type: StationEventEligible # For when someone makes this more granular in the future.
+  - type: entity
+    id: BaseStation
+    abstract: true
+    components:
+      - type: StationData
+  - type: entity
+    id: BaseRandomStation
+    abstract: true
+    components:
+      - type: StationRandomTransform
+  - type: entity
+    id: BaseStationJobsSpawning
+    abstract: true
+    components:
+      - type: StationJobs
+        availableJobs: {}
+      - type: StationSpawning
+  - type: entity
+    id: BaseStationRecords
+    abstract: true
+    components:
+      - type: StationRecords
+  - type: entity
+    id: BaseStationAlertLevels
+    abstract: true
+    components:
+      - type: AlertLevel
+        alertLevelPrototype: stationAlerts
+  - type: entity
+    id: BaseStationAllEventsEligible
+    abstract: true
+    components:
+      - type: StationEventEligible # For when someone makes this more granular in the future.

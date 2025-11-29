@@ -1,32 +1,30 @@
-- type: entity
-  parent: ClothingShoesMilitaryBase
-  id: ClothingShoesBootsJack
-  name: jackboots
-  description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Boots/jackboots.rsi
-
-- type: entity
-  parent: ClothingShoesMilitaryBase
-  id: ClothingShoesBootsCombat
-  name: combat boots
-  description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Boots/combatboots.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ClothingShoesBootsLaceup
-  name: laceup shoes
-  description: The height of fashion, and they're pre-polished!
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Boots/laceups.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Boots/laceups.rsi
+  - type: entity
+    parent: ClothingShoesMilitaryBase
+    id: ClothingShoesBootsJack
+    name: jackboots
+    description: Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
+    components:
+      - type: Sprite
+        sprite: Clothing/Shoes/Boots/jackboots.rsi
+      - type: Clothing
+        sprite: Clothing/Shoes/Boots/jackboots.rsi
+  - type: entity
+    parent: ClothingShoesMilitaryBase
+    id: ClothingShoesBootsCombat
+    name: combat boots
+    description: Robust combat boots for combat scenarios or combat situations. All combat, all the time.
+    components:
+      - type: Sprite
+        sprite: Clothing/Shoes/Boots/combatboots.rsi
+      - type: Clothing
+        sprite: Clothing/Shoes/Boots/combatboots.rsi
+  - type: entity
+    parent: ClothingShoesBaseButcherable
+    id: ClothingShoesBootsLaceup
+    name: laceup shoes
+    description: The height of fashion, and they're pre-polished!
+    components:
+      - type: Sprite
+        sprite: Clothing/Shoes/Boots/laceups.rsi
+      - type: Clothing
+        sprite: Clothing/Shoes/Boots/laceups.rsi

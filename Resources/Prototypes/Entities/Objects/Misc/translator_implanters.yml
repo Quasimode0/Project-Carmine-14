@@ -1,7 +1,7 @@
-- type: entity
-  id: AdvancedGalaticCommonTranslatorImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  name: advanced common translator implanter
-  components:
-  - type: Implanter
-    implant: TauCetiBasicTranslatorImplant
+  - type: entity
+    parent: BaseImplantOnlyImplanterSyndi
+    id: AdvancedGalaticCommonTranslatorImplanter
+    name: advanced common translator implanter
+    components:
+      - type: Implanter
+        implant: TauCetiBasicTranslatorImplant

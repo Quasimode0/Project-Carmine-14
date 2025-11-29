@@ -1,55 +1,48 @@
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlassesMeson
-  name: engineering goggles #less confusion
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/meson.rsi
-  - type: EyeProtection
-  - type: Tag
-    tags:
-    - SecDogWearable # DeltaV - let Laika wear meson goggles
-
-- type: entity
-  parent: ClothingEyesBase
-  id: ClothingEyesGlasses
-  name: glasses
-  description: A pair of spectacular spectacles with prescription lenses.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/glasses.rsi
-  - type: VisionCorrection
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-
-- type: entity
-  parent: ClothingEyesGlasses
-  id: ClothingEyesGlassesMonocle
-  name: monocle
-  description: Such a dapper eyepiece!
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/monocle.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/monocle.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-
-- type: entity
-  parent: ClothingEyesGlassesCheapSunglasses
-  id: ClothingEyesGlassesSunglasses
-  name: shielded sunglasses
-  description: A pair of black sunglasses. These ones are specially made to protect the eye from blinding flashes of light.
-  components:
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
+  - type: entity
+    parent: ClothingEyesBase
+    id: ClothingEyesGlassesMeson
+    name: engineering goggles
+    description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+    components:
+      - type: Sprite
+        sprite: Clothing/Eyes/Glasses/meson.rsi
+      - type: Clothing
+        sprite: Clothing/Eyes/Glasses/meson.rsi
+      - type: Tag
+        tags:
+          - SecDogWearable # DeltaV - let Laika wear meson goggles
+      - type: EyeProtection
+  - type: entity
+    parent: ClothingEyesBase
+    id: ClothingEyesGlasses
+    name: glasses
+    description: A pair of spectacular spectacles with prescription lenses.
+    components:
+      - type: Sprite
+        sprite: Clothing/Eyes/Glasses/glasses.rsi
+      - type: Clothing
+        sprite: Clothing/Eyes/Glasses/glasses.rsi
+      - type: Tag
+        tags: [HamsterWearable, WhitelistChameleon]
+      - type: VisionCorrection
+  - type: entity
+    parent: ClothingEyesGlasses
+    id: ClothingEyesGlassesMonocle
+    name: monocle
+    description: Such a dapper eyepiece!
+    components:
+      - type: Sprite
+        sprite: Clothing/Eyes/Glasses/monocle.rsi
+      - type: Clothing
+        sprite: Clothing/Eyes/Glasses/monocle.rsi
+      - type: Tag
+        tags: [WhitelistChameleon]
+  - type: entity
+    parent: ClothingEyesGlassesCheapSunglasses
+    id: ClothingEyesGlassesSunglasses
+    name: shielded sunglasses
+    description: A pair of black sunglasses. These ones are specially made to protect the eye from blinding flashes of light.
+    components:
+      - type: FlashImmunity
+      - type: EyeProtection
+        protectionTime: 5

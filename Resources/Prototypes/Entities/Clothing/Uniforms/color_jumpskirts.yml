@@ -1,27 +1,25 @@
-# All of the jumpskirts here have had their parent changed to ClothingUniformSkirtBase, as to allow harpies to wear them.
-# White Jumpskirt
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformJumpskirtColorWhite
-  name: white jumpskirt
-  description: A generic white jumpskirt with no rank markings.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    layers:
-    - state: icon
-    - state: trinkets-icon
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      - state: trinkets-inhand-left
-      right:
-      - state: inhand-right
-      - state: trinkets-inhand-right
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
-    clothingVisuals:
-      jumpsuit:
-      - state: equipped-INNERCLOTHING
-      - state: trinkets-equipped-INNERCLOTHING
+  - type: entity
+    parent: ClothingUniformSkirtBase
+    id: ClothingUniformJumpskirtColorWhite
+    name: white jumpskirt
+    description: A generic white jumpskirt with no rank markings.
+    components:
+      - type: Sprite
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+        layers:
+          - state: icon
+          - state: trinkets-icon
+      - type: Item
+        inhandVisuals:
+          left:
+            - state: inhand-left
+            - state: trinkets-inhand-left
+          right:
+            - state: inhand-right
+            - state: trinkets-inhand-right
+      - type: Clothing
+        sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+        clothingVisuals:
+          jumpsuit:
+            - state: equipped-INNERCLOTHING
+            - state: trinkets-equipped-INNERCLOTHING

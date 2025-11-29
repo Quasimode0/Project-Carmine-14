@@ -1,11 +1,2 @@
-# - type: loadout
-#   id: CarmineBaseLoadoutMaskSterile
-#   category: Mask
-#   cost: 0
-#   exclusive: true
-#   customColorTint: true
-#   items:
-#     - ClothingMaskSterile
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutMasks
+null
+...

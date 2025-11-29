@@ -1,30 +1,29 @@
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: BaseWhistle
-  name: whistle
-  description: Someone forgot to turn off kettle?
-  components:
-  - type: Item
-    sprite: Objects/Fun/whistles.rsi
-    size: Tiny
-  - type: Sprite
-    sprite: Objects/Fun/whistles.rsi
-  - type: Clothing
-    sprite: Objects/Fun/whistles.rsi
-    quickEquip: false
-    slots: neck
-  - type: UseDelay
-    delay: 3
-  - type: EmitSoundOnUse
-    sound:
-      collection: BaseWhistle
-  - type: Whistle
-    distance: 3
-
-- type: entity
-  parent: BaseWhistle
-  id: Whistle
-  components:
-  - type: Sprite
-    state: whistle
+  - type: entity
+    parent: BaseItem
+    id: BaseWhistle
+    name: whistle
+    description: Someone forgot to turn off kettle?
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Fun/whistles.rsi
+      - type: Item
+        sprite: Objects/Fun/whistles.rsi
+        size: Tiny
+      - type: Clothing
+        sprite: Objects/Fun/whistles.rsi
+        quickEquip: false
+        slots: neck
+      - type: UseDelay
+        delay: 3
+      - type: EmitSoundOnUse
+        sound:
+          collection: BaseWhistle
+      - type: Whistle
+        distance: 3
+  - type: entity
+    parent: BaseWhistle
+    id: Whistle
+    components:
+      - type: Sprite
+        state: whistle

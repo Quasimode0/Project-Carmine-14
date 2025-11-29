@@ -1,237 +1,204 @@
-- type: marking
-  id: GauzeLefteyePatch
-  bodyPart: Eyes
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_lefteye_2
-
-- type: marking
-  id: GauzeLefteyePad
-  bodyPart: Eyes
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_lefteye_1
-
-- type: marking
-  id: GauzeRighteyePatch
-  bodyPart: Eyes
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_righteye_2
-
-- type: marking
-  id: GauzeRighteyePad
-  bodyPart: Eyes
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_righteye_1
-
-- type: marking
-  id: GauzeBlindfold
-  bodyPart: Eyes
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_blindfold
-
-- type: marking
-  id: GauzeShoulder
-  bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_shoulder
-
-- type: marking
-  id: GauzeStomach
-  bodyPart: Chest
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_abdomen
-
-- type: marking
-  id: GauzeUpperArmRight
-  bodyPart: RArm
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_upperarm_r
-
-- type: marking
-  id: GauzeLowerArmRight
-  bodyPart: RArm, RHand
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_lowerarm_r
-
-- type: marking
-  id: GauzeLeftArm
-  bodyPart: LArm, LHand
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_leftarm
-
-- type: marking
-  id: GauzeLowerLegLeft
-  bodyPart: LFoot
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_lowerleg_l
-
-- type: marking
-  id: GauzeUpperLegLeft
-  bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_upperleg_l
-
-- type: marking
-  id: GauzeUpperLegRight
-  bodyPart: RLeg
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_upperleg_r
-
-- type: marking
-  id: GauzeLowerLegRight
-  bodyPart: RFoot
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_lowerleg_r
-
-- type: marking
-  id: GauzeBoxerWrapRight
-  bodyPart: RHand
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_boxerwrap_r
-
-- type: marking
-  id: GauzeBoxerWrapLeft
-  bodyPart: LHand
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_boxerwrap_l
-
-- type: marking
-  id: GauzeHead
-  bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin # EE - Arachne, Lamia
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: Mobs/Customization/gauze.rsi
-    state: gauze_head
+  - type: marking
+    id: GauzeLefteyePatch
+    bodyPart: Eyes
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_lefteye_2
+  - type: marking
+    id: GauzeLefteyePad
+    bodyPart: Eyes
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_lefteye_1
+  - type: marking
+    id: GauzeRighteyePatch
+    bodyPart: Eyes
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_righteye_2
+  - type: marking
+    id: GauzeRighteyePad
+    bodyPart: Eyes
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_righteye_1
+  - type: marking
+    id: GauzeBlindfold
+    bodyPart: Eyes
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Harpy, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_blindfold
+  - type: marking
+    id: GauzeShoulder
+    bodyPart: Chest
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_shoulder
+  - type: marking
+    id: GauzeStomach
+    bodyPart: Chest
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_abdomen
+  - type: marking
+    id: GauzeUpperArmRight
+    bodyPart: RArm
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_upperarm_r
+  - type: marking
+    id: GauzeLowerArmRight
+    bodyPart: RArm, RHand
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_lowerarm_r
+  - type: marking
+    id: GauzeLeftArm
+    bodyPart: LArm, LHand
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_leftarm
+  - type: marking
+    id: GauzeLowerLegLeft
+    bodyPart: LFoot
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_lowerleg_l
+  - type: marking
+    id: GauzeUpperLegLeft
+    bodyPart: LLeg
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_upperleg_l
+  - type: marking
+    id: GauzeUpperLegRight
+    bodyPart: RLeg
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_upperleg_r
+  - type: marking
+    id: GauzeLowerLegRight
+    bodyPart: RFoot
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_lowerleg_r
+  - type: marking
+    id: GauzeBoxerWrapRight
+    bodyPart: RHand
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_boxerwrap_r
+  - type: marking
+    id: GauzeBoxerWrapLeft
+    bodyPart: LHand
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin; Einstein Engines - Tajaran
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_boxerwrap_l
+  - type: marking
+    id: GauzeHead
+    bodyPart: Head
+    markingCategory: Overlay
+    speciesRestriction: [Human] # Delta V - Felinid, Oni, Vulpkanin  # EE - Arachne, Lamia
+    coloring:
+      default:
+        type: !type:SimpleColoring
+          color: '#FFFFFF'
+    sprites:
+      - sprite: Mobs/Customization/gauze.rsi
+        state: gauze_head

@@ -1,215 +1,190 @@
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: SheetOtherBase
-  description: A sheet of material, used often on the station in various applications.
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/Sheets/other.rsi
-  - type: Item
-    sprite: Objects/Materials/Sheets/other.rsi
-    size: Normal
-  - type: Tag
-    tags:
-    - Sheet
-    - NoPaint
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: SolutionContainerManager
-    solutions:
-      paper:
-        canReact: false
-
-- type: entity
-  parent: SheetOtherBase
-  id: SheetPlasma
-  name: plasma
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Plasma: 100
-  - type: Stack
-    stackType: Plasma
-    baseLayer: base
-    layerStates:
-    - plasma
-    - plasma_2
-    - plasma_3
-  - type: Sprite
-    state: plasma_3
-    layers:
-    - state: plasma_3
-      map: ["base"]
-  - type: Item
-    heldPrefix: plasma
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plasma
-  - type: Tag
-    tags:
-    - Sheet
-    - NoPaint
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
-    requireActiveHand: false
-  - type: ShortConstruction
-    entries:
-    - prototype: SheetPGlass
-    - prototype: SheetRPGlass
-    - prototype: SheetRPGlass1
-
-- type: entity
-  parent: SheetPlasma
-  id: SheetPlasma1
-  name: plasma
-  suffix: Single
-  components:
-  - type: Sprite
-    state: plasma
-  - type: Stack
-    count: 1
-
-- type: entity
-  parent: SheetPlasma
-  id: SheetPlasma10
-  name: plasma
-  suffix: 10
-  components:
-  - type: Sprite
-    state: plasma
-  - type: Stack
-    count: 10
-
-- type: entity
-  parent: SheetOtherBase
-  id: SheetPlastic
-  name: plastic
-  suffix: Full
-  components:
-  - type: Tag
-    tags:
-    - Plastic
-    - Sheet
-    - NoPaint
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-  - type: Stack
-    stackType: Plastic
-    baseLayer: base
-    layerStates:
-    - plastic
-    - plastic_2
-    - plastic_3
-  - type: Sprite
-    state: plastic_3
-    layers:
-    - state: plastic_3
-      map: ["base"]
-  - type: Item
-    heldPrefix: plastic
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: plastic
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
-    requireActiveHand: false
-  - type: ShortConstruction
-    entries:
-    - prototype: CratePlastic
-
-- type: entity
-  parent: SheetPlastic
-  id: SheetPlastic10
-  name: plastic
-  suffix: 10
-  components:
-  - type: Sprite
-    state: plastic
-  - type: Stack
-    count: 10
-
-- type: entity
-  parent: SheetPlastic
-  id: SheetPlastic1
-  name: plastic
-  suffix: Single
-  components:
-  - type: Sprite
-    state: plastic
-  - type: Stack
-    count: 1
-
-- type: entity
-  parent: [SheetOtherBase, FoodBase]
-  id: SheetUranium
-  name: uranium
-  suffix: Full
-  components:
-  - type: Material
-  - type: Food
-    transferAmount: 10
-  - type: BadFood
-  - type: PhysicalComposition
-    materialComposition:
-      Uranium: 100
-  - type: Stack
-    stackType: Uranium
-    baseLayer: base
-    layerStates:
-    - uranium
-    - uranium_2
-    - uranium_3
-  - type: Sprite
-    state: uranium_3
-    layers:
-    - state: uranium_3
-      map: ["base"]
-  - type: Appearance
-  - type: Item
-    heldPrefix: uranium
-  - type: Extractable
-    grindableSolutionName: food
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
-    requireActiveHand: false
-  - type: ShortConstruction
-    entries:
-    - prototype: SheetUGlass
-    - prototype: SheetRUGlass
-    - prototype: SheetRUGlass1
-
-- type: entity
-  parent: SheetUranium
-  id: SheetUranium1
-  name: uranium
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
+  - type: entity
+    parent: BaseItem
+    id: SheetOtherBase
+    description: A sheet of material, used often on the station in various applications.
+    abstract: true
+    components:
+      - type: Sprite
+        sprite: Objects/Materials/Sheets/other.rsi
+      - type: Item
+        sprite: Objects/Materials/Sheets/other.rsi
+        size: Normal
+      - type: Tag
+        tags: [Sheet, NoPaint]
+      - type: Destructible
+        thresholds:
+          - trigger: !type:DamageTrigger
+              damage: 100
+            behaviors:
+              - !type:DoActsBehavior
+                acts: [Destruction]
+      - type: Damageable
+        damageContainer: Inorganic
+      - type: SolutionContainerManager
+        solutions:
+          paper:
+            canReact: false
+  - type: entity
+    parent: SheetOtherBase
+    id: SheetPlasma
+    name: plasma
+    suffix: Full
+    components:
+      - type: Sprite
+        state: plasma_3
+        layers:
+          - state: plasma_3
+            map: [base]
+      - type: Item
+        heldPrefix: plasma
+      - type: Stack
+        stackType: Plasma
+        baseLayer: base
+        layerStates: [plasma, plasma_2, plasma_3]
+      - type: Appearance
+      - type: Tag
+        tags: [Sheet, NoPaint]
+      - type: UserInterface
+        interfaces:
+          enum.RadialSelectorUiKey.Key:
+            type: RadialSelectorMenuBUI
+      - type: Material
+      - type: PhysicalComposition
+        materialComposition:
+          Plasma: 100
+      - type: Extractable
+        grindableSolutionName: plasma
+      - type: ActivatableUI
+        key: enum.RadialSelectorUiKey.Key
+        inHandsOnly: true
+        requireActiveHand: false
+      - type: ShortConstruction
+        entries:
+          - prototype: SheetPGlass
+          - prototype: SheetRPGlass
+          - prototype: SheetRPGlass1
+  - type: entity
+    parent: SheetPlasma
+    id: SheetPlasma1
+    name: plasma
+    suffix: Single
+    components:
+      - type: Sprite
+        state: plasma
+      - type: Stack
+        count: 1
+  - type: entity
+    parent: SheetPlasma
+    id: SheetPlasma10
+    name: plasma
+    suffix: 10
+    components:
+      - type: Sprite
+        state: plasma
+      - type: Stack
+        count: 10
+  - type: entity
+    parent: SheetOtherBase
+    id: SheetPlastic
+    name: plastic
+    suffix: Full
+    components:
+      - type: Sprite
+        state: plastic_3
+        layers:
+          - state: plastic_3
+            map: [base]
+      - type: Item
+        heldPrefix: plastic
+      - type: Stack
+        stackType: Plastic
+        baseLayer: base
+        layerStates: [plastic, plastic_2, plastic_3]
+      - type: Appearance
+      - type: Tag
+        tags: [Plastic, Sheet, NoPaint]
+      - type: UserInterface
+        interfaces:
+          enum.RadialSelectorUiKey.Key:
+            type: RadialSelectorMenuBUI
+      - type: Material
+      - type: PhysicalComposition
+        materialComposition:
+          Plastic: 100
+      - type: Extractable
+        grindableSolutionName: plastic
+      - type: ActivatableUI
+        key: enum.RadialSelectorUiKey.Key
+        inHandsOnly: true
+        requireActiveHand: false
+      - type: ShortConstruction
+        entries:
+          - prototype: CratePlastic
+  - type: entity
+    parent: SheetPlastic
+    id: SheetPlastic10
+    name: plastic
+    suffix: 10
+    components:
+      - type: Sprite
+        state: plastic
+      - type: Stack
+        count: 10
+  - type: entity
+    parent: SheetPlastic
+    id: SheetPlastic1
+    name: plastic
+    suffix: Single
+    components:
+      - type: Sprite
+        state: plastic
+      - type: Stack
+        count: 1
+  - type: entity
+    parent: [SheetOtherBase, FoodBase]
+    id: SheetUranium
+    name: uranium
+    suffix: Full
+    components:
+      - type: Sprite
+        state: uranium_3
+        layers:
+          - state: uranium_3
+            map: [base]
+      - type: Item
+        heldPrefix: uranium
+      - type: Stack
+        stackType: Uranium
+        baseLayer: base
+        layerStates: [uranium, uranium_2, uranium_3]
+      - type: Appearance
+      - type: UserInterface
+        interfaces:
+          enum.RadialSelectorUiKey.Key:
+            type: RadialSelectorMenuBUI
+      - type: Material
+      - type: Food
+        transferAmount: 10
+      - type: BadFood
+      - type: PhysicalComposition
+        materialComposition:
+          Uranium: 100
+      - type: Extractable
+        grindableSolutionName: food
+      - type: ActivatableUI
+        key: enum.RadialSelectorUiKey.Key
+        inHandsOnly: true
+        requireActiveHand: false
+      - type: ShortConstruction
+        entries:
+          - prototype: SheetUGlass
+          - prototype: SheetRUGlass
+          - prototype: SheetRUGlass1
+  - type: entity
+    parent: SheetUranium
+    id: SheetUranium1
+    name: uranium
+    suffix: Single
+    components:
+      - type: Stack
+        count: 1

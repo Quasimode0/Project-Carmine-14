@@ -1,11 +1,10 @@
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ClothingShoesLeather
-  name: leather shoes
-  description: Very stylish pair of boots, made from fine leather.
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Misc/leather.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Misc/leather.rsi
+  - type: entity
+    parent: ClothingShoesBaseButcherable
+    id: ClothingShoesLeather
+    name: leather shoes
+    description: Very stylish pair of boots, made from fine leather.
+    components:
+      - type: Sprite
+        sprite: Clothing/Shoes/Misc/leather.rsi
+      - type: Clothing
+        sprite: Clothing/Shoes/Misc/leather.rsi
